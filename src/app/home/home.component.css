@@ -1,0 +1,58 @@
+.jumbotron{
+    background: linear-gradient(to right, #c5b582,#2f9a9e);
+    height: 190px;
+  
+  }
+
+#_title{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    text-align: center;
+}
+
+#title{
+    width: 520px;
+}
+
+#lastName{
+    font-weight: bold;
+}
+
+
+#text{
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgba(255, 255, 255, 0.76);
+    text-align: center;
+    font-size: small;
+    font-weight: bold;
+}
+
+.space{
+    height: 20px;
+}
+
+#en, #fr{
+    width: 20px;
+    float: right;
+    position: relative;    
+    right: 1%;
+    top: 3%;
+    cursor: pointer;
+}
+
+#pp{
+    width:200px;
+    
+ }
+
+ #pres{
+    width: 800px;
+    position: relative;
+    left: 15%;
+}
+
+#cv, #contact, #projet{
+    width: 200px;
+    cursor: pointer;
+}
+

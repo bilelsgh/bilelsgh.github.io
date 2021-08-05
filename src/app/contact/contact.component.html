@@ -1,0 +1,56 @@
+<div class="jumbotron jumbotron-fluid">
+    <img src="../../assets/data/en.png" id="en" alt="" *ngIf="fr" (click)="switchLang()">
+    <img src="../../assets/data/fr.png" id="fr" alt="" *ngIf="!fr" (click)="switchLang()">
+    <div class="space"></div>
+
+    <div class="container">
+      <table align="center">
+        <tr><h2 style="color: white;">Contact</h2></tr>
+      </table>
+        
+      <p class="lead" id="text" *ngIf="fr">Plusieurs manières de me joindre</p> 
+      <p class="lead" id="text" *ngIf="!fr">Several ways to contact me</p> 
+      <table align="center" cellpadding="10">
+        <tr>
+            <td><button type="button" class="btn btn-outline-light" routerLink="" *ngIf="fr">Accueil</button>
+                <button type="button" class="btn btn-outline-light" routerLink="" *ngIf="!fr">Home</button></td>
+      </tr>
+    </table>
+    </div>
+  </div>
+
+<br>
+
+<table align="center">
+    <!--LinkedIn-->
+    <div id="linkedin" class="card bg-dark text-white">
+        <img src="../../assets/data/linked.jpg" alt="Card image">
+        <div class="card-img-overlay">
+          <h5 class="card-title">LinkedIn</h5>
+          <button type="button" class="btn btn-outline-light"><a target="_blank" rel="noopener noreferrer" style="color: white;" href="https://linkedin.com/bilel-saghrouchni">Go</a></button>
+          
+        </div>
+      </div>
+
+    <!--GH-->
+    <br>
+      <div id="linkedin" class="card bg-dark text-white">
+        <img src="../../assets/data/gh.jpg" alt="Card image">
+        <div class="card-img-overlay">
+          <h5 class="card-title">Github</h5>
+          <button type="button" class="btn btn-outline-light"><a target="_blank" rel="noopener noreferrer" style="color: white;" href="https://github.com/bilelsgh">Go</a></button>
+          
+        </div>
+      </div>
+
+    <!--GM-->
+    <br>
+    <div id="linkedin" class="card bg-dark text-white">
+      <img src="../../assets/data/gm.jpg" alt="Card image">
+      <div class="card-img-overlay">
+        <h5 class="card-title">Email</h5>
+        <button type="button" class="btn btn-outline-light" (click)="showMail()" *ngIf="!mail">Go</button> <p *ngIf="mail">bilel.saghrouchni@gmail.com </p>
+        
+      </div>
+    </div>
+</table>
