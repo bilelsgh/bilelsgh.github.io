@@ -1,0 +1,36 @@
+
+<div class="jumbotron jumbotron-fluid">
+    <img src="../../assets/data/en.png" id="en" alt="" *ngIf="fr" (click)="switchLang()">
+    <img src="../../assets/data/fr.png" id="fr" alt="" *ngIf="!fr" (click)="switchLang()">
+    <div class="space"></div>
+
+    <div class="container">
+      <table align="center">
+        <tr><h2 *ngIf="fr" style="color: white;">CV</h2><h2 *ngIf="!fr" style="color: white;">Resume</h2></tr>
+      </table>
+        
+      <p class="lead" id="text" *ngIf="fr">Apprenez en un peu plus sur mon parcours et mes différents projets</p> 
+      <p class="lead" id="text" *ngIf="!fr">Learn more about my background and my different projects</p> 
+      <table align="center" cellpadding="10">
+        <tr>
+            <td><button type="button" class="btn btn-outline-light" routerLink="" *ngIf="fr">Accueil</button>
+                <button type="button" class="btn btn-outline-light" routerLink="" *ngIf="!fr">Home</button></td>
+      </tr>
+    </table>
+    </div>
+  </div>
+
+<br>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<table align="center" cellpadding="15">
+    <tr>
+        <td><button class="btn" id="download" *ngIf="fr" disabled><i class="fa fa-download"></i> Version française</button>
+            <button class="btn" id="download" *ngIf="!fr" disabled><i class="fa fa-download"></i> French version</button></td>
+        <td><button class="btn" id="download" *ngIf="fr"><i class="fa fa-download"></i> 
+            <a href="../../assets/data/cv_en.pdf" download="" style="color: white;">Version anglaise</a></button>
+            <button class="btn" id="download" *ngIf="!fr"><i class="fa fa-download"></i>
+                <a href="../../assets/data/cv_en.pdf" download="" style="color: white;">English version</a></button></td>    
+    </tr>
+</table>
