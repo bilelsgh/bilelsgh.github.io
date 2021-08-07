@@ -1,6 +1,5 @@
 <div class="jumbotron jumbotron-fluid">
-    <img src="../../assets/data/en.png" id="en" alt="" *ngIf="fr" (click)="switchLang()">
-    <img src="../../assets/data/fr.png" id="fr" alt="" *ngIf="!fr" (click)="switchLang()">
+
     <div class="space"></div>
 
     <div class="container">
@@ -10,12 +9,7 @@
         
       <p class="lead" id="text" *ngIf="fr">Plusieurs manières de me joindre</p> 
       <p class="lead" id="text" *ngIf="!fr">Several ways to contact me</p> 
-      <table align="center" cellpadding="10">
-        <tr>
-            <td><button type="button" class="btn btn-outline-light" routerLink="" *ngIf="fr">Accueil</button>
-                <button type="button" class="btn btn-outline-light" routerLink="" *ngIf="!fr">Home</button></td>
-      </tr>
-    </table>
+      
     </div>
   </div>
 

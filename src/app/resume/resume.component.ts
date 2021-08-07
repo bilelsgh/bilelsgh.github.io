@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { OptionService } from '../services/options.service';
 
 @Component({
   selector: 'app-resume',
@@ -6,15 +8,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./resume.component.css']
 })
 export class ResumeComponent implements OnInit {
-  fr : boolean = true;
+  public fr: boolean = true;
+  public frSub: Subscription = new Subscription;
 
-  constructor() { }
+  constructor(private oServ: OptionService) { }
 
   ngOnInit(): void {
+    this.frSub = this.oServ.langSubject.subscribe(
+      (elt: boolean) => {
+        this.fr = elt;
+      }
+    );
+    this.oServ.emitLangSubject();
   }
 
   switchLang(){
-    this.fr = !this.fr;
+    this.oServ.switchLang();
   }
+
 
 }

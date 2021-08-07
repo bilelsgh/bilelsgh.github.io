@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { OptionService } from '../services/options.service';
 
 @Component({
   selector: 'app-contact',
@@ -7,20 +9,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
-  fr : boolean = true;
   mail : boolean = false;
 
-  constructor() { }
+  public fr: boolean = true;
+  public frSub: Subscription = new Subscription;
+
+  constructor(private oServ: OptionService) { }
 
   ngOnInit(): void {
+    this.frSub = this.oServ.langSubject.subscribe(
+      (elt: boolean) => {
+        this.fr = elt;
+      }
+    );
+    this.oServ.emitLangSubject();
   }
 
   switchLang(){
-    this.fr = !this.fr;
+    this.oServ.switchLang();
   }
 
   showMail(){
-    this.mail = true;
+    this.mail = !this.mail;
   }
+
 
 }

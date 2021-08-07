@@ -20,6 +20,7 @@
     "@angular/router": "~12.2.0",
     "@pdftron/webviewer": "^8.0.0",
     "bootstrap": "^5.1.0",
+    "material-icons": "^1.1.1",
     "ng2-pdf-viewer": "^7.0.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",

@@ -1,27 +1,22 @@
 <div class="jumbotron jumbotron-fluid">
-    <img src="../../assets/data/en.png" id="en" alt="" *ngIf="fr" (click)="switchLang()">
-    <img src="../../assets/data/fr.png" id="fr" alt="" *ngIf="!fr" (click)="switchLang()">
+
     <div class="space"></div>
 
     <div class="container">
       <table align="center">
-        <tr><img src="../../assets/data/bilel.png" id="title" alt=""></tr>
+        <tr><img src="../../assets/data/bilel_bis.png" id="title" alt=""></tr>
       </table>
         
       <p class="lead" id="text" *ngIf="fr">Élève ingénieur en informatique</p> 
       <p class="lead" id="text" *ngIf="!fr">IT Engineer student</p> 
-      <table align="center" cellpadding="10">
-        <tr>
-            <td><button type="button" class="btn btn-outline-light"><a target="_blank" rel="noopener noreferrer" style="color: white;" href="https://linkedin.com/in/bilel-saghrouchni">LinkedIn</a></button></td>
-            <td><button type="button" class="btn btn-outline-light"><a target="_blank" rel="noopener noreferrer" style="color: white;" href="https://github.com/bilelsgh">Github</a></button></td>
-      </tr>
-    </table>
+      
     </div>
   </div>
 
 <br>
 
-
+<i *ngIf="fr">Site en construction</i>
+<i *ngIf="!fr">Website under construction</i>
 
 <!-- PRESENTATION -->
 <div id="pres">
@@ -39,11 +34,5 @@
 </div>
 <br><br>
 
-<!--BUTTONS-->
-<table align="center" cellpadding="70">
-  <tr>
-    <td><img src="../../assets/data/projet.png" alt="" id="projet"><p style="text-align: center;" *ngIf="fr">Projets</p><p style="text-align: center;" *ngIf="!fr">Projects</p></td>
-    <td><img src="../../assets/data/cv.png" alt="" id="cv" routerLink="resume"><p *ngIf="fr" style="text-align: center;">CV</p><p *ngIf="!fr" style="text-align: center;">Resume</p></td>
-    <td><img src="../../assets/data/contact.png" alt="" id="contact" routerLink="contact"><p style="text-align: center;">Contact</p></td>
-  </tr>
-</table>
+
+<!--diapo des projets-->

@@ -1,0 +1,35 @@
+#home{
+    position: relative;
+    float: left;
+    left: 50%;
+}
+
+#en, #fr{
+    width: 20px;
+    float: right;
+    position: relative;    
+    right: 1%;
+    top: 3%;
+    cursor: pointer;
+}
+
+#lk, #gh{
+    width: 23px;
+    float: right;
+    position: relative;    
+    right: 1%;
+    top: 3%;
+    cursor: pointer;
+}
+
+#bs{
+    width: 50px;
+    position: relative;
+    left: 38%;
+}
+
+#bs_fr{
+    width: 50px;
+    position: relative;
+    left: 35%;
+}
