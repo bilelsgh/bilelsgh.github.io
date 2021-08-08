@@ -1,0 +1,38 @@
+<div class="jumbotron jumbotron-fluid">
+
+    <div class="space"></div>
+
+    <div class="container">
+      <table align="center">
+        <tr><img src="../../assets/data/bilel_bis.png" id="title" alt=""></tr>
+      </table>
+        
+      <p class="lead" id="text" *ngIf="fr">Élève ingénieur en informatique</p> 
+      <p class="lead" id="text" *ngIf="!fr">IT Engineer student</p> 
+      
+    </div>
+  </div>
+
+<br>
+
+<i *ngIf="fr">Site en construction</i>
+<i *ngIf="!fr">Website under construction</i>
+
+<!-- PRESENTATION -->
+<div id="pres">
+    <div *ngIf="fr">
+        <h1 style="color: #2f9a9e; font-weight: lighter;">Bienvenue</h1>
+        <p>Je suis Bilel SAGHROUCHNI, passionné d'informatique et élève ingénieur dans ce domaine, vous trouverez sur ce site les travaux que j'ai réalisé à travers de multiples expériences.
+        </p>
+    </div>
+
+    <div *ngIf="!fr">
+        <h1 style="color: #2f9a9e; font-weight: lighter;">Welcome</h1>
+        <p>I'm Bilel SAGHROUCHNI, passionate about computer science and a engineer student in this field, you can find out on this website the work I have done through multiple experiences.
+        </p>
+    </div>
+</div>
+<br><br>
+
+
+<!--diapo des projets-->
