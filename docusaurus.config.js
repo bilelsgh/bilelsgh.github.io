@@ -9,6 +9,10 @@ const config = {
 
   url: 'https://bilelsgh.github.io',
   baseUrl: '/',
+  projectName: 'bilelsgh.github.io',
+  organizationName: 'bilelsgh',
+  deploymentBranch: 'deployment',
+  trailingSlash: false,
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
