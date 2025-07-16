@@ -11,7 +11,7 @@ const config = {
   baseUrl: '/',
   projectName: 'bilelsgh.github.io',
   organizationName: 'bilelsgh',
-  deploymentBranch: 'deployment',
+  deploymentBranch: 'main',
   trailingSlash: false,
 
   // GitHub pages deployment config.
