@@ -1,19 +1,22 @@
-facebook:
-  label: Facebook
-  permalink: /facebook
-  description: Facebook tag description
+research:
+  label: Research
+  permalink: /
+  description: Research articles
 
-hello:
-  label: Hello
-  permalink: /hello
-  description: Hello tag description
+ai:
+  label: AI
+  permalink: /
+  description: Artificial Intelligence
 
-docusaurus:
-  label: Docusaurus
-  permalink: /docusaurus
-  description: Docusaurus tag description
+cyber-security:
+  label: Cyber Security
+  permalink: /
+  description: Cyber Security
 
-hola:
-  label: Hola
-  permalink: /hola
-  description: Hola tag description
+actualité:
+  label: Actualité
+  permalink: /
+  description: Actualité
+
+
+
