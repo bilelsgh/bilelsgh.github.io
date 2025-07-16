@@ -1,17 +1,17 @@
 research:
-  label: Research
-  permalink: /research
-  description: Research articles
+  label: Recherche
+  permalink: /recherche
+  description: Travaux de recherche
 
-ai:
-  label: AI
-  permalink: /ai
-  description: Artificial Intelligence
+ia:
+  label: IA
+  permalink: /ia
+  description: Intelligence Artificielle
 
-cyber-security:
-  label: Cyber Security
-  permalink: /cyber_security
-  description: Cyber Security
+cyber-securite:
+  label: Cyber Sécurité
+  permalink: /cyber_securite
+  description: Cyber Sécurité
 
 actualité:
   label: Actualité
