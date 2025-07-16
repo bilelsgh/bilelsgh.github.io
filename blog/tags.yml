@@ -1,21 +1,21 @@
 research:
   label: Research
-  permalink: /
+  permalink: /research
   description: Research articles
 
 ai:
   label: AI
-  permalink: /
+  permalink: /ai
   description: Artificial Intelligence
 
 cyber-security:
   label: Cyber Security
-  permalink: /
+  permalink: /cyber_security
   description: Cyber Security
 
 actualité:
   label: Actualité
-  permalink: /
+  permalink: /actualite
   description: Actualité
 
 
