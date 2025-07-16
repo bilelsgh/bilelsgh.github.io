@@ -1,0 +1,38 @@
+---
+title: "Accueil"
+description: "Présentation"
+---
+
+import "../../src/css/index.css"
+
+<!-- Présentation -->
+
+<table style= {{ verticalAlign: 'top', border: 'none' }} cellspacing="0" cellpadding="0">
+        <td style={{ width:'15%', border: 'none' }}>
+            <img src="https://media.licdn.com/dms/image/v2/D4E03AQGP4uwHC2a4Aw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1726837919525?e=1758153600&v=beta&t=BhSsvgzTxpEucEIMRV4CeI9IkAZFLRqnJRU3tK1hU0g" alt="Photo de Bilel" style={{ borderRadius: '50%', width: '100px', height: '100px', objectFit: 'cover' }} />
+        </td>
+        <td style={{ border: 'none' }}>
+            ## Bienvenue
+
+            Je suis **Bilel Saghrouchni**, doctorant CIFRE en **Machine Learning** chez SPIE ICS et à l'INSA Lyon (CITI Lab). Mes travaux de recherche portent sur la **l'apprentissage par renforcement profond et l'apprentissage continue** appliqués à **la détection d'intrusion** dans les réseaux informatiques.
+
+            Sur ce site, vous pouvez découvrir mon parcours, consulter mes publications et explorer mes projets personnels. Je partage également régulièrement des articles sur mon blog, où je traite de l'avancement de ma thèse ainsi que de sujets techniques qui me passionnent.
+
+            👉 Curieux d'en savoir plus ou intéressé par une collaboration ? N’hésitez pas à me contacter !
+        </td>
+</table>
+  
+
+{/* Liens */}
+
+<div style={{ display: 'flex', gap: '1rem' }}>
+  <a href="/articles" className="mycard">
+    <h3>📚 Articles</h3>
+    <p>Lire mes réflexions sur l'IA, la recherche et l'enseignement.</p>
+  </a>
+
+  <a href="/projets" className="mycard">
+    <h3>🔧 Projets</h3>
+    <p>Explorez mes contributions en code, mes démos, et outils développés.</p>
+  </a>
+</div>
