@@ -14,35 +14,42 @@
     color: inherit;
     transition: transform 0.2s, box-shadow 0.2s;
   }
-  [data-theme='dark'] .card{
-    background-color: #151515;
-    color: #eee;
-    border: #333;
-  }
-
+  
   .card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
   }
-
+  
   .card-image img {
     object-fit: cover;
     display: block;
     width: 100%;
-}
-
-
+  }
+  
+  
   .card-content {
     padding: 1rem;
   }
-
+  
   .card-content h2 {
     margin: 0 0 0.5rem;
     font-size: 1.2rem;
   }
-
+  
   .card-content p {
     margin: 0;
     font-size: 0.95rem;
     color: #555;
+  }
+  
+  [data-theme='dark'] .card-content p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #ffffff;
+  }
+  
+  [data-theme='dark'] .card{
+    background-color: #151515;
+    color: #ffffff;
+    border: #333;
   }
