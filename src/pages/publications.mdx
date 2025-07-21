@@ -5,8 +5,8 @@ description: 'articles'
 
 import '../../src/css/publications.css'
 
-export const Card = ({ title, image, description, link }) => (
-  <a href={link} target="_blank" rel="noopener noreferrer" className="card">
+export const Card = ({ title, image, description, cardClass, link }) => (
+  <a href={link} target="_blank" rel="noopener noreferrer" className={cardClass}>
     <div className="card-image">
       <img src={image} alt={title} width={300} height={180} />
     </div>
@@ -19,20 +19,22 @@ export const Card = ({ title, image, description, link }) => (
 
 # Publications
 
-Quelques articles scientifiques publiés au cours de ma thèse.
+Quelques articles scientifiques publiés (ou bientôt) au cours de ma thèse.
 
 <div className="grid">
   <Card
     title="CSNet 2024"
     image="/img/paris_csnet.jpg"
     description="Towards an Unsupervised Reward Function for a Deep Reinforcement Learning Based Intrusion Detection System"
+    cardClass="card"
     link="https://ieeexplore.ieee.org/abstract/document/10851732"
   />
   <Card
     title="KES 2025"
     image="/img/kes25.jpg"
     description="Comprehensive Comparison of Streaming Clustering-Based IDS: Evaluation Across Clustering Families with a Novel Ensemble Classifier"
-    link="/publications"
+    cardClass="disabled-card"
+    link=""
   />
   
 </div>
