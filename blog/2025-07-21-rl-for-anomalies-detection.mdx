@@ -20,7 +20,7 @@ Rapidement, les méthodes basées sur le machine et le deep learning ont été i
 
 ## Le comportement sur le réseau change
 Comme pour tout système d’apprentissage, la qualité et la pertinence des données utilisées jouent un rôle fondamental et cela vaut également pour le trafic réseau. En plus de la pipeline de préparation classique, il faut s'assurer que les flows soient représentatifs du comportement actuel du réseau pour que les inférences du modèle restent pertinentes sur le long terme.
-X et al. ont montré que plus les années passaient (Figure 1), plus le comportement du trafic réseau évoluait. Y et al. quant à eux mettent en avant l'augmentation des erreurs de différents modèles de détection d'anomalies au fur et à mesure du temps s'ils ne sont pas ré-entraînés (Figure 2).
+Dragoi, Marius, et al. ont montré que plus les années passaient (Figure 1), plus le comportement du trafic réseau évoluait. Santos Roger quant à eux mettent en avant l'augmentation des erreurs de différents modèles de détection d'anomalies au fur et à mesure du temps s'ils ne sont pas ré-entraînés (Figure 2).
 Tout cela met en avant le phénomène de concept drift et la nécessité de ré-entraîner les modèles de détection d'anomalies régulièrement pour que la modélisation du trafic soit correcte, actuelle et que la détection reste pertinente.
 
 <img src="/img/blog/conceptdrift.png" width={"100%"}/>
@@ -41,7 +41,7 @@ Si la fonction de récompense est trop simple, l'agent peut apprendre des compor
 Dans les anciennes colonies britanniques en Inde, le gouvernement a offert une récompense pour chaque cobra mort afin d’éradiquer leur infestation. Au lieu de diminuer, la population a commencé à élever des cobras pour les tuer ensuite et toucher l’argent.
 :::
 
-Dans notre cas, si l'agent reçoit une récompense trop grande pour chaque alerte levée, il peut devenir trop sensible et constamment lever des alertes pour obtenir son dû, ce qui entraînerait de nombreux faux positifs. La fonction de récompense ne fait pas partie intégrante de l’environnement : c’est au concepteur de l’agent de la définir avec soin, en choisissant précisément les situations dans lesquelles une récompense doit être attribuée, et ce qu’elle représente réellement.
+Dans notre cas, si l'agent reçoit une récompense trop grande pour chaque alerte levée, il peut devenir trop sensible et constamment lever des alertes pour obtenir un maximum de récompense, ce qui entraînerait de nombreux faux positifs. La fonction de récompense ne fait pas partie intégrante de l’environnement : c’est au concepteur de l’agent de la définir avec soin, en choisissant précisément les situations dans lesquelles une récompense doit être attribuée, et ce qu’elle représente réellement.
 
 :::info
 Introduire des connaissances supplémentaires dans la fonction de récompense peut aider l'agent à converger plus rapidement, on parle de Reward Shaping.
