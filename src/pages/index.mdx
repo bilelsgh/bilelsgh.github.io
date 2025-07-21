@@ -4,6 +4,7 @@ description: "Présentation"
 ---
 
 import "../../src/css/index.css"
+import RandomCards from '@site/src/components/RandomCards'
 
 {/* <!-- Présentation --> */}
 
@@ -25,17 +26,8 @@ import "../../src/css/index.css"
 
 {/* Liens */}
 
-<div style={{ display: 'flex', gap: '1rem' }}>
-  <a href="/publications" className="mycard">
-    <h3>📚 Publications</h3>
-    <p>Découvrez mes travaux de recherche.</p>
-  </a>
+<RandomCards />
 
-  <a href="/projets" className="mycard">
-    <h3>🔧 Projets</h3>
-    <p>Explorez mes contributions en code, mes démos, et outils développés.</p>
-  </a>
-</div>
 
 
 {/* add stack technique */}
