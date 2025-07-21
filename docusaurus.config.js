@@ -84,23 +84,25 @@ const config = {
             label: 'Blog', 
             position: 'left'},
 
-          {
-            to: '/cv', 
-            label: 'CV', 
-            position: 'left'},
-
+            
           {
             to: '/publications', 
             label: 'Publications', 
             position: 'left'},
-          
+            
             {
-            to: '/projects', 
-            label: 'Projets', 
-            position: 'left'},
-
+              to: '/projects', 
+              label: 'Projets', 
+              position: 'left'},
+            
+            {
+              to: '/cv', 
+              label: 'CV', 
+              position: 'left'},
+                
           {
             type: 'localeDropdown',
+            position: 'right',
             position: 'right',
           },
 
@@ -109,6 +111,13 @@ const config = {
             position: 'right',
             label: 'GitHub',
             'aria-label': 'Profil GitHub',
+            target: '_blank',
+          },
+          {
+            href: 'https://linkedin.com/in/bilel-saghrouchni/',
+            position: 'right',
+            label: 'LinkedIn',
+            'aria-label': 'Profil LinkedIn',
             target: '_blank',
           },
         ],
@@ -153,6 +162,10 @@ const config = {
               {
                 label: 'GitHub',
                 href: 'https://github.com/bilelsgh',
+              },
+              {
+                label: 'LinkedIn',
+                href: 'https://linkedin.com/in/bilel-saghrouchni/',
               },
             ],
           },
