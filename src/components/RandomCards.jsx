@@ -7,7 +7,7 @@ const allCards = [
     description: "Découvrez mes travaux de recherche."
   },
   {
-    href: "/projets",
+    href: "/projects",
     title: "🔧 Projets",
     description: "Explorez mes contributions en code, mes démos, et outils développés."
   },

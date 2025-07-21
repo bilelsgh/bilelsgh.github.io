@@ -93,6 +93,11 @@ const config = {
             to: '/publications', 
             label: 'Publications', 
             position: 'left'},
+          
+            {
+            to: '/projects', 
+            label: 'Projets', 
+            position: 'left'},
 
           {
             type: 'localeDropdown',
