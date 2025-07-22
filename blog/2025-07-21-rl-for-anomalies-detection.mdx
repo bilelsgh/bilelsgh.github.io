@@ -14,9 +14,9 @@ Dans ce contexte, les réseaux informatiques représentent une cible de choix po
 
 ## Détecter une anomalie
 En analysant le trafic, il est possible de détecter des déviations de comportement pouvant cacher des cyber attaques. Lorsqu’on parle de trafic réseau, on fait généralement référence à des flux (ou flows), qui regroupent des paquets partageant des caractéristiques communes.
-Un flux peut être défini par un ensemble de propriétés comme les adresses IP, les ports, le protocole de transport, la durée, la taille, etc. mais aussi par des propriétés plus abstraites comme le nombre de paquets, la taille moyenne des paquets, etc.
+Un flux peut être défini par un ensemble de propriétés comme les adresses IP, les ports, le protocole de transport, la durée, la taille, etc. mais aussi par d'autres propriétés comme le nombre de paquets, la taille moyenne des paquets, etc.
 La détection d’anomalies est un domaine bien établi, dont les premières approches remontent à plusieurs décennies. Les méthodes par signature ont été les premiers systèmes de détection d'anomalies (IDS). Elles consistent à comparer le trafic réseau à une base de données de signatures connues d'attaques et à lever une alerte s'il y a un match. Cependant, ces méthodes sont limitées par leur capacité à détecter uniquement les attaques connues, ne peuvent pas s'adapter aux nouvelles menaces et ne sont pas robustes aux légères variations.
-Rapidement, les méthodes basées sur le machine et le deep learning ont été introduites : en apprenant sur des données historiques elles surmontent ces limitations et détectent des anomalies plus complexes.
+Rapidement, les méthodes basées sur le machine et le deep learning ont été introduites : en apprenant sur des données historiques elles surmontent ces limitations, détectent des anomalies plus complexes et parviennent à généraliser à des flux encore jamais observés.
 
 ## Le comportement sur le réseau change
 Comme pour tout système d’apprentissage, la qualité et la pertinence des données utilisées jouent un rôle fondamental et cela vaut également pour le trafic réseau. En plus de la pipeline de préparation classique, il faut s'assurer que les flows soient représentatifs du comportement actuel du réseau pour que les inférences du modèle restent pertinentes sur le long terme.
@@ -34,8 +34,8 @@ L'environement est défini par le trafic réseau que l'agent observe. Il prend d
 <img src="/img/blog/rl_ad.png" width={"50%"}/>
 
 ## Une fonction de récompense pour des cas d'usage réalistes
-La fonction de récompense est alors au coeur de l'apprentissage par renforcement. Elle guide l'agent vers des comportements souhaités sans les formuler mathématiquement. Dans le contexte de la détection d'anomalies, la fonction de récompense doit être soigneusement conçue pour refléter les objectifs de sécurité et les priorités opérationnelles.
-Si la fonction de récompense est trop simple, l'agent peut apprendre des comportements indésirables et l'objectif de maximisation de la récompense peut jouer en notre défaveur, c'est ce qu'on appelle l'effet Cobra.
+La fonction de récompense est alors au coeur de l'apprentissage par renforcement. Elle guide l'agent vers des comportements souhaités. Dans le contexte de la détection d'anomalies, la fonction de récompense doit être soigneusement conçue pour refléter les objectifs de sécurité et les priorités opérationnelles.
+Si la fonction de récompense est trop simple, l'agent peut apprendre des comportements indésirables et l'objectif de maximisation de la récompense peut jouer en notre défaveur, c'est ce qu'on appelle l'[effet Cobra](https://fr.wikipedia.org/wiki/Effet_cobra).
 
 :::info
 Dans les anciennes colonies britanniques en Inde, le gouvernement a offert une récompense pour chaque cobra mort afin d’éradiquer leur infestation. Au lieu de diminuer, la population a commencé à élever des cobras pour les tuer ensuite et toucher l’argent.
@@ -44,7 +44,7 @@ Dans les anciennes colonies britanniques en Inde, le gouvernement a offert une r
 Dans notre cas, si l'agent reçoit une récompense trop grande pour chaque alerte levée, il peut devenir trop sensible et constamment lever des alertes pour obtenir un maximum de récompense, ce qui entraînerait de nombreux faux positifs. La fonction de récompense ne fait pas partie intégrante de l’environnement : c’est au concepteur de l’agent de la définir avec soin, en choisissant précisément les situations dans lesquelles une récompense doit être attribuée, et ce qu’elle représente réellement.
 
 :::info
-Introduire des connaissances supplémentaires dans la fonction de récompense peut aider l'agent à converger plus rapidement, on parle de Reward Shaping.
+Introduire des connaissances supplémentaires dans la fonction de récompense peut aider l'agent à converger plus rapidement, on parle de [Reward Shaping](https://gibberblot.github.io/rl-notes/single-agent/reward-shaping.html).
 :::
 
 La plupart du temps dans l'état de l'art, les fonctions de récompenses sont basées sur des étiquettes empêchant l'agent d'apprendre en continue et de manière autonome dans un environnement réel.

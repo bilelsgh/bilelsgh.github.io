@@ -15,7 +15,7 @@ In this context, computer networks are prime targets for cybercriminals, who ben
 By analyzing network traffic, it is possible to detect behavioral deviations that may conceal cyberattacks. When we talk about network traffic, we generally refer to flows, which group packets that share common characteristics.  
 A flow can be defined by a set of properties such as IP addresses, ports, transport protocol, duration, size, etc., but also by more abstract characteristics like the number of packets, the average packet size, and so on.  
 Anomaly detection is a well-established field, with early approaches dating back several decades. Signature-based methods were the first anomaly detection systems (IDS). They work by comparing network traffic to a database of known attack signatures and raising an alert if there's a match. However, these methods are limited to detecting only known attacks, cannot adapt to new threats, and are not robust to slight variations.  
-Quickly, machine and deep learning-based approaches were introduced: by learning from historical data, they overcome these limitations and detect more complex anomalies.
+Quickly, machine and deep learning-based approaches were introduced: by learning from historical data, they overcome these limitations, detect more complex anomalies and generalize to unknown flows.
 
 ## Network Behavior Evolves  
 As with any learning system, the quality and relevance of the data used play a fundamental role — this also applies to network traffic. In addition to the standard preprocessing pipeline, it is crucial to ensure that flows remain representative of the network's current behavior so that the model's inferences stay relevant over time.  
@@ -33,8 +33,8 @@ The environment is defined by the network traffic observed by the agent. It take
 <img src="/img/blog/rl_ad.png" width={"50%"} />
 
 ## A Reward Function for Realistic Use Cases  
-The reward function lies at the heart of reinforcement learning. It guides the agent toward desired behaviors without explicitly formulating them mathematically. In the context of anomaly detection, the reward function must be carefully designed to reflect security goals and operational priorities.  
-If the reward function is too simplistic, the agent may learn undesirable behaviors, and the goal of maximizing reward can work against us — this is known as the Cobra Effect.
+The reward function lies at the heart of reinforcement learning. It guides the agent toward desired behaviors. In the context of anomaly detection, the reward function must be carefully designed to reflect security goals and operational priorities.  
+If the reward function is too simplistic, the agent may learn undesirable behaviors, and the goal of maximizing reward can work against us — this is known as the [Cobra Effect](https://fr.wikipedia.org/wiki/Effet_cobra).
 
 :::info  
 In colonial India under British rule, the government offered a reward for every dead cobra to eradicate the infestation. Instead of decreasing, the population began to breed cobras in order to kill them and collect the money.  
@@ -44,7 +44,7 @@ In our case, if the agent receives a large reward for every alert it raises, it 
 The reward function is not inherently part of the environment: it is up to the agent designer to define it carefully, choosing precisely when a reward should be granted and what it truly represents.
 
 :::info  
-Introducing additional knowledge into the reward function can help the agent converge faster — this is known as Reward Shaping.  
+Introducing additional knowledge into the reward function can help the agent converge faster — this is known as [Reward Shaping](https://gibberblot.github.io/rl-notes/single-agent/reward-shaping.html).  
 :::
 
 Most of the time in state-of-the-art approaches, reward functions are based on labeled data, which prevents the agent from learning continuously and autonomously in a real environment.  
