@@ -4,24 +4,40 @@ description: "Introduction"
 ---
 import "../../../src/css/index.css"
 
-<table style={{ verticalAlign: 'top', border: 'none' }} cellSpacing="0" cellPadding="0">
-    <td style={{ width: '15%', border: 'none' }}>
-      <img
-        src="https://media.licdn.com/dms/image/v2/D4E03AQGP4uwHC2a4Aw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1726837919525?e=1758153600&v=beta&t=BhSsvgzTxpEucEIMRV4CeI9IkAZFLRqnJRU3tK1hU0g"
-        style={{ borderRadius: '50%', width: '50%', height: '50%', objectFit: 'cover' }}
-      />
-    </td>
-    <td style={{ border: 'none' }}>
-      ## Welcome
-
-      I am **Bilel Saghrouchni**, a **CIFRE PhD candidate in Machine Learning** at SPIE ICS and INSA Lyon (CITI Lab). My research focuses on **deep reinforcement learning and continual learning** applied to **intrusion detection** in computer networks.
-
+<div style={{
+  display: 'flex',
+  flexWrap: 'wrap',
+  alignItems: 'flex-start',
+  gap: '1rem',
+}}>
+  <div style={{
+    flex: '0 0 100px',
+    maxWidth: '150px',
+    minWidth: '80px',
+  }}>
+    <img
+      src="https://media.licdn.com/dms/image/v2/D4E03AQGP4uwHC2a4Aw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1726837919525?e=1758153600&v=beta&t=BhSsvgzTxpEucEIMRV4CeI9IkAZFLRqnJRU3tK1hU0g"
+      style={{
+        width: '100%',
+        height: 'auto',
+        borderRadius: '50%',
+        objectFit: 'cover'
+      }}
+      alt="Profile"
+    />
+  </div>
+  <div style={{ flex: '1 1 300px' }}>
+    <h2>Welcome</h2>
+    <p>
+      I am <strong>Bilel Saghrouchni</strong>, a <strong>CIFRE PhD candidate in Machine Learning</strong> at SPIE ICS and INSA Lyon (CITI Lab). My research focuses on <strong>deep reinforcement learning and continual learning</strong> applied to <strong>intrusion detection</strong> in computer networks.
+    </p>
+    <p>
       On this website, you can learn more about my background, explore my publications, and discover my personal projects. I also regularly share articles on my blog, where I discuss the progress of my PhD work as well as technical topics that I am passionate about.
+    </p>
+    <p>👉 <strong>Curious to know more or interested in collaborating? Feel free to get in touch!</strong></p>
+  </div>
+</div>
 
-      👉 **Curious to know more or interested in collaborating? Feel free to get in touch!**
-
-    </td>
-</table>
 
 {/* Links */}
 
