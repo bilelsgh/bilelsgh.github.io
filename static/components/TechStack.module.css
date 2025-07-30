@@ -1,0 +1,86 @@
+.row {
+  display: flex;
+  gap: 24px;                   /* écart horizontal fixe entre logos */
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 8px 0 20px;
+}
+
+.item {
+  position: relative;          /* nécessaire pour positionner la bulle */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  outline: none;
+  width: 80px;                 /* largeur fixe pour éviter tout décalage */
+  text-align: center;
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+  transition: transform 150ms ease;
+  will-change: transform;
+}
+
+/* Bulle (tooltip) */
+.tooltip {
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 8px);       /* sous l’icône, avec 8px d’espace */
+  transform: translateX(-50%) translateY(-4px);
+  opacity: 0;
+  pointer-events: none;         /* ne capte pas la souris (évite flicker) */
+
+  /* Style de la bulle */
+  background: var(--ifm-color-emphasis-900);
+  color: #fff;
+  padding: 6px 8px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  line-height: 1.2;
+  white-space: normal;          /* autorise le retour ligne */
+  max-width: 140px;             /* bulle pas trop large */
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,.15);
+  z-index: 2;
+
+  transition: opacity 150ms ease, transform 150ms ease;
+}
+
+[data-theme='dark'] .tooltip{
+    color: #000;
+}
+
+/* Petite flèche sous l’icône */
+.tooltip::after {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: transparent transparent var(--ifm-color-emphasis-900) transparent;
+}
+
+/* Effets au survol / focus clavier (accessibilité) */
+.item:hover .icon,
+.item:focus-visible .icon {
+  transform: scale(1.1);
+}
+
+.item:hover .tooltip,
+.item:focus-visible .tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Réduction des animations si demandée par l’utilisateur */
+@media (prefers-reduced-motion: reduce) {
+  .icon, .tooltip {
+    transition: none;
+  }
+}
