@@ -4,8 +4,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 type Item = {
   label: string;
-  src: string;      // chemin depuis /static
-  href?: string;    // optionnel : lien externe
+  src: string;      
+  href?: string;    
 };
 
 const items: Item[] = [
@@ -13,6 +13,8 @@ const items: Item[] = [
   { label: 'TensorFlow',  src: '/img/stack/tensorflow.png',  href: 'https://www.tensorflow.org/' },
   { label: 'Gymnasium',   src: '/img/stack/gym.png',   href: 'https://github.com/Farama-Foundation/Gymnasium' },
   { label: 'ML-Flow',  src: '/img/stack/mlflow.png',  href: 'https://mlflow.org/' },
+  { label: 'Scikit Learn',  src: '/img/stack/sklearn.png',  href: 'https://github.com/scikit-learn/scikit-learn' },
+  { label: 'Langchain',  src: '/img/stack/langchain.png',  href: 'https://github.com/langchain-ai/langchain' },
   { label: 'Streamlit',  src: '/img/stack/streamlit.png',  href: 'https://github.com/streamlit/streamlit' },
   { label: 'UV',  src: '/img/stack/uv.svg',  href: 'https://github.com/astral-sh/uv' },
   { label: 'pre-commit',  src: '/img/stack/precommit.png',  href: 'https://github.com/pre-commit/pre-commit'},
