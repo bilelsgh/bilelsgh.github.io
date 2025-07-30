@@ -1,6 +1,6 @@
 .row {
   display: flex;
-  gap: 24px;                   /* écart horizontal fixe entre logos */
+  gap: 14px;                   /* écart horizontal fixe entre logos */
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
@@ -8,19 +8,19 @@
 }
 
 .item {
-  position: relative;          /* nécessaire pour positionner la bulle */
+  position: relative;          
   display: flex;
   flex-direction: column;
   align-items: center;
   text-decoration: none;
   outline: none;
-  width: 80px;                 /* largeur fixe pour éviter tout décalage */
+  width: 80px;                
   text-align: center;
 }
 
 .icon {
-  width: 32px;
-  height: 32px;
+  width: 42px;
+  height: 42px;
   transition: transform 150ms ease;
   will-change: transform;
 }
@@ -32,7 +32,7 @@
   top: calc(100% + 8px);       /* sous l’icône, avec 8px d’espace */
   transform: translateX(-50%) translateY(-4px);
   opacity: 0;
-  pointer-events: none;         /* ne capte pas la souris (évite flicker) */
+  pointer-events: none;         
 
   /* Style de la bulle */
   background: var(--ifm-color-emphasis-900);
@@ -42,7 +42,7 @@
   font-size: 0.75rem;
   line-height: 1.2;
   white-space: normal;          /* autorise le retour ligne */
-  max-width: 140px;             /* bulle pas trop large */
+  max-width: 140px;             
   text-align: center;
   box-shadow: 0 4px 12px rgba(0,0,0,.15);
   z-index: 2;
