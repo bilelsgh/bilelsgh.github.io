@@ -1,0 +1,41 @@
+---
+slug: stackoverflow-is-dead 
+title: Is Stack Overflow Dead? LLMs too?
+description: With the rise of LLMs, what does the future hold for Stack Overflow, one of the primary data sources for training language models? 
+authors: [bilelsgh] 
+tags: [ai, research]
+---
+
+It's no secret today that LLMs need an enormous amount of text data to be trained effectively. Due to its immense volume, the web quickly became the primary data source, and the majority of training datasets are now based on it. In addition to the stratospheric amount of data, the diversity of sources is also a key factor in ensuring good coverage of different writing styles, topics, and contexts. Among these sources, developer forums like Stack Overflow play a crucial role. But in recent years, activity on Stack Overflow has seen a significant decline, raising questions about its future and its potential impact on future LLM training. {/* truncate */}
+
+<img src="/img/blog/overflow_questions.png" width={"80%"}/>
+
+## Stack Overflow, a Gold Mine of Data
+Indeed, Stack Overflow is an essential platform for developers worldwide. It allows programmers to ask technical, pragmatic, and sometimes very specific questions. The answers provided by the community are often detailed, including code snippets, in-depth explanations, and practical solutions to common problems. You don't just find answers to questions there, but also discussions about best practices, tool recommendations, advice for optimizing code, etc. These are real discussions, collaborative thought processes developed and documented by peers. This makes it a gold mine for training language models, especially those focused on programming.
+
+:::info 
+Stack Overflow is one of the most popular platforms where developers share their knowledge, ask technical questions, and provide detailed solutions to a variety of programming problems.
+:::
+
+In the RedPajama dataset, Stack Overflow alone accounts for over 7% of the data, making it a primary source for training LLMs on programming problems [2].
+
+## Why Use Stack Overflow When I Already Have ChatGPT?
+When I was a student, Stack Overflow was my go-to reference when my code didn't work. What I found fascinating was that all my problems had already been encountered, discussed, and solved by someone else before me. Even if it wasn't exactly the same context or the exact same error, with a little thought and resourcefulness, I could get my program working. But today, I wouldn't even need all that; I almost wouldn't even need to think, because an LLM like GPT-4 or Claude could identify my problem and generate complete code adapted to my problem in seconds! However, adopting this mindset means taking the risk of exposing our code to subtle errors, biases, or security vulnerabilities that we might not detect without a deep understanding of the generated code. Zhong & Wang [1] looked into this question, wondering if LLMs could replace Stack Overflow. They evaluated the ability of several LLMs to answer questions from Stack Overflow concerning complex Java APIs and compared their performance to that of the answers provided by the community. The results show that with GPT-4, in over 60% of cases, the code contains API usage errors. Only the addition of examples showing the correct use of the API (in-context learning) led to better results. Indeed, executable code is not necessarily reliable code, and even if better results can be obtained with a better prompt, not all users are aware of this or are necessarily capable of providing this additional context.
+
+<img src="/img/blog/stackoverflow_vs_gpt.png" width={"60%"}/> 
+_Comparison of posts on Stack Overflow, its Russian and Chinese equivalents, and mathematics Q&A platforms since early 2022 [3]._
+
+## Who Still Uses Stack Overflow?
+As soon as ChatGPT was released, activity on Stack Overflow dropped sharply by 16%, and it has been getting worse ever since: in May 2022, there were over 200,000 questions asked on Stack Overflow; last October, there were only 11,116 questions, a 94% decrease in just over 3 years [4], unlike other equivalents or specialized platforms (see image above). We should therefore note several things:
+    - LLMs are presumably good enough at code to answer the majority of questions asked on Stack Overflow about popular languages [3].
+    - More and more developers want a quick answer and prefer using LLMs to solve their problems, with all the risks that entails.
+    - Fewer questions asked means less quality data for future LLM training.
+
+Regarding the secpnd point, we discussed it earlier, and discussions around the growing dependency on LLMs are very numerous, so I'll spare you that. But this decline in activity on Stack Overflow is very worrying for the future of LLMs. Indeed, as mentioned earlier, Stack Overflow is a valuable source of high-quality data for training language models. Fewer questions and answers mean less data to train future models, which could potentially affect their performance and their ability to understand and solve complex future problems. On the one hand, LLMs will be worse at future new languages or libraries, but on the other hand, developers won't notice and will continue to use LLMs that are potentially more prone to hallucinations and thus to producing incorrect code. But Stack Overflow and other forums still remain active, especially for less popular languages [3] not mastered by LLMs, but for how long?
+
+## 📚 Sources
+
+1. Zhong, L., & Wang, Z. (2024, March). Can llm replace stack overflow? a study on robustness and reliability of large language model code generation. In Proceedings of the AAAI conference on artificial intelligence (Vol. 38, No. 19, pp. 21841-21849).
+2. Perełkiewicz, M., & Poświata, R. (2024, June). A review of the challenges with massive web-mined corpora used in large language models pre-training. In International Conference on Artificial Intelligence and Soft Computing (pp. 153-163). Cham: Springer Nature Switzerland.
+3. del Rio-Chanona, M., Laurentsyeva, N., & Wachs, J. (2023). Are large language models a threat to digital public goods. Evidence from activity on stack overflow. arXiv, 2307.
+4. StackExchange - Stackoverflow. https://data.stackexchange.com/stackoverflow/query/1882534/questions-per-month#graph
