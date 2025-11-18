@@ -1,11 +1,10 @@
-import {themes as prismThemes} from 'prism-react-renderer';
+import { themes as prismThemes } from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Gabriel F.',
   tagline: 'Dinosaurs are cool',
   favicon: 'img/favicon.ico',
-
 
   url: 'https://gabiwaxxxX.github.io',
   baseUrl: '/',
@@ -22,7 +21,6 @@ const config = {
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
 
-
   i18n: {
     defaultLocale: 'fr',
     locales: ['fr', 'en'],
@@ -32,11 +30,10 @@ const config = {
     [
       'classic',
       // '@docusaurus/preset-classic',
-      ({
+      {
         docs: {
           sidebarPath: './sidebars.js',
-          editUrl:
-            'https://github.com/gabiwaxxxX/gabiwaxx.github.io',
+          editUrl: 'https://github.com/gabiwaxxxX/gabiwaxx.github.io',
         },
         blog: {
           showReadingTime: true,
@@ -45,8 +42,7 @@ const config = {
             copyright: `Copyright © ${new Date().getFullYear()} Julien CAPOSIENA`,
             xslt: true,
           },
-          editUrl:
-            'https://github.com/gabiwaxxxX/gabiwaxx.github.io/',
+          editUrl: 'https://github.com/gabiwaxxxX/gabiwaxx.github.io/',
 
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
@@ -55,7 +51,7 @@ const config = {
         theme: {
           customCss: './src/css/custom.css',
         },
-      }),
+      },
     ],
   ],
 
@@ -72,16 +68,18 @@ const config = {
         },
 
         items: [
-            {
-              to: '/projects', 
-              label: 'Projets', 
-              position: 'left'},
-            
-            {
-              to: '/cv', 
-              label: 'CV', 
-              position: 'left'},
-                
+          {
+            to: '/projects',
+            label: 'Projets',
+            position: 'left',
+          },
+
+          {
+            to: '/cv',
+            label: 'CV',
+            position: 'left',
+          },
+
           {
             type: 'localeDropdown',
             position: 'right',

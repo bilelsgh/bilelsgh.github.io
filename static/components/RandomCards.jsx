@@ -2,25 +2,27 @@ import React from 'react';
 
 const allCards = [
   {
-    href: "/publications",
-    title: "📚 Publications",
-    description: "Découvrez mes travaux de recherche."
+    href: '/publications',
+    title: '📚 Publications',
+    description: 'Découvrez mes travaux de recherche.',
   },
   {
-    href: "/projects",
-    title: "🔧 Projets",
-    description: "Explorez mes contributions en code, mes démos, et outils développés."
+    href: '/projects',
+    title: '🔧 Projets',
+    description:
+      'Explorez mes contributions en code, mes démos, et outils développés.',
   },
   {
-    href: "/cv",
-    title: "📖 CV",
-    description: "Mon parcours académique et professionnel."
+    href: '/cv',
+    title: '📖 CV',
+    description: 'Mon parcours académique et professionnel.',
   },
   {
-    href: "/blog",
-    title: "🖊️ Blog",
-    description: "Des réflexions et découvertes autour de mes travaux et au-delà."
-  }
+    href: '/blog',
+    title: '🖊️ Blog',
+    description:
+      'Des réflexions et découvertes autour de mes travaux et au-delà.',
+  },
 ];
 
 function getRandomCards(arr, n = 2) {
@@ -32,9 +34,21 @@ export default function RandomCards() {
   const cards = getRandomCards(allCards);
 
   return (
-    <div style={{ display: 'flex', gap: '1rem', marginTop: '2rem', flexWrap: 'wrap' }}>
+    <div
+      style={{
+        display: 'flex',
+        gap: '1rem',
+        marginTop: '2rem',
+        flexWrap: 'wrap',
+      }}
+    >
       {cards.map(({ href, title, description }) => (
-        <a key={href} href={href} className="mycard" style={{ flex: '1 1 200px' }}>
+        <a
+          key={href}
+          href={href}
+          className="mycard"
+          style={{ flex: '1 1 200px' }}
+        >
           <h3>{title}</h3>
           <p>{description}</p>
         </a>

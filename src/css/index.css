@@ -7,10 +7,12 @@
   padding: 1rem;
   background-color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
-  transition: background-color 0.3s, color 0.3s;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
 }
 
-[data-theme='dark'] .mycard{
+[data-theme='dark'] .mycard {
   background-color: #151515;
   color: #eee;
   border: #333;
