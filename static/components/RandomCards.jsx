@@ -2,11 +2,6 @@ import React from 'react';
 
 const allCards = [
   {
-    href: '/publications',
-    title: '📚 Publications',
-    description: 'Découvrez mes travaux de recherche.',
-  },
-  {
     href: '/projects',
     title: '🔧 Projets',
     description:
@@ -16,13 +11,7 @@ const allCards = [
     href: '/cv',
     title: '📖 CV',
     description: 'Mon parcours académique et professionnel.',
-  },
-  {
-    href: '/blog',
-    title: '🖊️ Blog',
-    description:
-      'Des réflexions et découvertes autour de mes travaux et au-delà.',
-  },
+  }
 ];
 
 function getRandomCards(arr, n = 2) {

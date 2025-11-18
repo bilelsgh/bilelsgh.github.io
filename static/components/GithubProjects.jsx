@@ -19,7 +19,7 @@ export default function GitHubProjects() {
   const [repos, setRepos] = useState([]);
 
   useEffect(() => {
-    fetch('https://api.github.com/users/bilelsgh/repos?per_page=100')
+    fetch('https://api.github.com/users/gabiwaxxxX/repos?per_page=100')
       .then(res => res.json())
       .then(data => {
         const publicRepos = data.filter(repo => !repo.private);
