@@ -1,6 +1,6 @@
 .row {
-  display: flex; 
-  gap: 18px;                   /* écart horizontal fixe entre logos */
+  display: flex;
+  gap: 18px; /* écart horizontal fixe entre logos */
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
@@ -8,13 +8,13 @@
 }
 
 .item {
-  position: relative;          
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-decoration: none;
   outline: none;
-  width: 80px;                
+  width: 80px;
   text-align: center;
 }
 
@@ -29,10 +29,10 @@
 .tooltip {
   position: absolute;
   left: 50%;
-  top: calc(100% + 8px);       /* sous l’icône, avec 8px d’espace */
+  top: calc(100% + 8px); /* sous l’icône, avec 8px d’espace */
   transform: translateX(-50%) translateY(-4px);
   opacity: 0;
-  pointer-events: none;         
+  pointer-events: none;
 
   /* Style de la bulle */
   background: var(--ifm-color-emphasis-900);
@@ -41,29 +41,32 @@
   border-radius: 8px;
   font-size: 0.75rem;
   line-height: 1.2;
-  white-space: normal;          /* autorise le retour ligne */
-  max-width: 140px;             
+  white-space: normal; /* autorise le retour ligne */
+  max-width: 140px;
   text-align: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   z-index: 2;
 
-  transition: opacity 150ms ease, transform 150ms ease;
+  transition:
+    opacity 150ms ease,
+    transform 150ms ease;
 }
 
-[data-theme='dark'] .tooltip{
-    color: #000;
+[data-theme='dark'] .tooltip {
+  color: #000;
 }
 
 /* Petite flèche sous l’icône */
 .tooltip::after {
-  content: "";
+  content: '';
   position: absolute;
   top: -6px;
   left: 50%;
   transform: translateX(-50%);
   border-width: 6px;
   border-style: solid;
-  border-color: transparent transparent var(--ifm-color-emphasis-900) transparent;
+  border-color: transparent transparent var(--ifm-color-emphasis-900)
+    transparent;
 }
 
 /* Effets au survol / focus clavier (accessibilité) */
@@ -80,7 +83,8 @@
 
 /* Réduction des animations si demandée par l’utilisateur */
 @media (prefers-reduced-motion: reduce) {
-  .icon, .tooltip {
+  .icon,
+  .tooltip {
     transition: none;
   }
 }

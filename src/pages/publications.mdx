@@ -3,10 +3,15 @@ titre: 'Publications'
 description: 'articles'
 ---
 
-import '../../src/css/publications.css'
+import '../../src/css/publications.css';
 
 export const Card = ({ title, image, description, cardClass, link }) => (
-  <a href={link} target="_blank" rel="noopener noreferrer" className={cardClass}>
+  <a
+    href={link}
+    target="_blank"
+    rel="noopener noreferrer"
+    className={cardClass}
+  >
     <div className="card-image">
       <img src={image} alt={title} width={300} height={180} />
     </div>
@@ -15,7 +20,7 @@ export const Card = ({ title, image, description, cardClass, link }) => (
       <p>{description}</p>
     </div>
   </a>
-)
+);
 
 # Publications
 
@@ -36,5 +41,4 @@ Quelques articles scientifiques publiés (ou bientôt) au cours de ma thèse.
     cardClass="disabled-card"
     link=""
   />
-  
 </div>
