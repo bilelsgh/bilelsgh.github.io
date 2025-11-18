@@ -1,16 +1,15 @@
-import {themes as prismThemes} from 'prism-react-renderer';
+import { themes as prismThemes } from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Bilel S.',
+  title: 'Gabriel F.',
   tagline: 'Dinosaurs are cool',
   favicon: 'img/favicon.ico',
 
-
-  url: 'https://bilelsgh.github.io',
+  url: 'https://gabiwaxxxX.github.io',
   baseUrl: '/',
-  projectName: 'bilelsgh.github.io',
-  organizationName: 'bilelsgh',
+  projectName: 'gabiwaxxxX.github.io',
+  organizationName: 'gabiwaxxxX',
   deploymentBranch: 'main',
   trailingSlash: false,
 
@@ -22,7 +21,6 @@ const config = {
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
 
-
   i18n: {
     defaultLocale: 'fr',
     locales: ['fr', 'en'],
@@ -32,11 +30,10 @@ const config = {
     [
       'classic',
       // '@docusaurus/preset-classic',
-      ({
+      {
         docs: {
           sidebarPath: './sidebars.js',
-          editUrl:
-            'https://github.com/bilelsgh/bilelsgh.github.io',
+          editUrl: 'https://github.com/gabiwaxxxX/gabiwaxx.github.io',
         },
         blog: {
           showReadingTime: true,
@@ -45,8 +42,7 @@ const config = {
             copyright: `Copyright © ${new Date().getFullYear()} Julien CAPOSIENA`,
             xslt: true,
           },
-          editUrl:
-            'https://github.com/bilelsgh/bilelsgh.github.io/',
+          editUrl: 'https://github.com/gabiwaxxxX/gabiwaxx.github.io/',
 
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
@@ -55,7 +51,7 @@ const config = {
         theme: {
           customCss: './src/css/custom.css',
         },
-      }),
+      },
     ],
   ],
 
@@ -65,41 +61,25 @@ const config = {
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
-        title: 'Bilel S.',
+        title: 'Gabriel F.',
         logo: {
           alt: 'My Site Logo',
           src: 'img/logo.png',
         },
 
         items: [
-          // {
-          //   type: 'docSidebar',
-          //   sidebarId: 'tutorialSidebar',
-          //   position: 'left',
-          //   label: 'Tutorial',
-          // },
+          {
+            to: '/projects',
+            label: 'Projets',
+            position: 'left',
+          },
 
           {
-            to: '/blog', 
-            label: 'Blog', 
-            position: 'left'},
+            to: '/cv',
+            label: 'CV',
+            position: 'left',
+          },
 
-            
-          {
-            to: '/publications', 
-            label: 'Publications', 
-            position: 'left'},
-            
-            {
-              to: '/projects', 
-              label: 'Projets', 
-              position: 'left'},
-            
-            {
-              to: '/cv', 
-              label: 'CV', 
-              position: 'left'},
-                
           {
             type: 'localeDropdown',
             position: 'right',
@@ -107,14 +87,14 @@ const config = {
           },
 
           {
-            href: 'https://github.com/bilelsgh/',
+            href: 'https://github.com/gabiwaxxxX/',
             position: 'right',
             label: 'GitHub',
             'aria-label': 'Profil GitHub',
             target: '_blank',
           },
           {
-            href: 'https://linkedin.com/in/bilel-saghrouchni/',
+            href: 'https://linkedin.com/in/0xgabriel/',
             position: 'right',
             label: 'LinkedIn',
             'aria-label': 'Profil LinkedIn',
@@ -126,51 +106,34 @@ const config = {
       footer: {
         style: 'dark',
         links: [
-          // {
-          //   title: 'Docs',
-          //   items: [
-          //     {
-          //       label: 'Tutorial',
-          //       to: '/docs/intro',
-          //     },
-          //   ],
-          // },
-          // {
-          //   title: 'Community',
-          //   items: [
-          //     {
-          //       label: 'Stack Overflow',
-          //       href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-          //     },
-          //     {
-          //       label: 'Discord',
-          //       href: 'https://discordapp.com/invite/docusaurus',
-          //     },
-          //     {
-          //       label: 'X',
-          //       href: 'https://x.com/docusaurus',
-          //     },
-          //   ],
-          // },
+          {
+            title: 'Community',
+            items: [
+              {
+                label: 'Telegram',
+                href: 'https://t.me/GabiwaxX',
+              },
+              {
+                label: 'X',
+                href: 'https://x.com/IvizzCut',
+              },
+            ],
+          },
           {
             title: 'More',
             items: [
               {
-                label: 'Blog',
-                to: '/blog',
-              },
-              {
                 label: 'GitHub',
-                href: 'https://github.com/bilelsgh',
+                href: 'https://github.com/gabiwaxxxX',
               },
               {
                 label: 'LinkedIn',
-                href: 'https://linkedin.com/in/bilel-saghrouchni/',
+                href: 'https://linkedin.com/in/0xgabriel/',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Bilel Saghrouchni. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Gabriel F. Built with Docusaurus.`,
       },
       prism: {
         theme: prismThemes.github,

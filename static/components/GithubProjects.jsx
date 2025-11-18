@@ -12,20 +12,22 @@ const languageColors = {
   HTML: '#e34c26',
   CSS: '#563d7c',
   JupyterNotebook: '#DA5B0B',
-  default: '#cccccc'
+  default: '#cccccc',
 };
 
 export default function GitHubProjects() {
   const [repos, setRepos] = useState([]);
 
   useEffect(() => {
-    fetch('https://api.github.com/users/bilelsgh/repos?per_page=100')
+    fetch('https://api.github.com/users/gabiwaxxxX/repos?per_page=100')
       .then(res => res.json())
       .then(data => {
         const publicRepos = data.filter(repo => !repo.private);
         setRepos(publicRepos);
       })
-      .catch(err => console.error("Erreur lors de la récupération des repos GitHub :", err));
+      .catch(err =>
+        console.error('Erreur lors de la récupération des repos GitHub :', err)
+      );
   }, []);
 
   return (
@@ -44,8 +46,16 @@ export default function GitHubProjects() {
             rel="noopener noreferrer"
           >
             <h3 style={{ marginBottom: '0.5rem' }}>{repo.name}</h3>
-            <p style={{ minHeight: '3rem' }}>{repo.description || "Aucune description disponible."}</p>
-            <div style={{ display: 'flex', alignItems: 'center', marginTop: '0.5rem' }}>
+            <p style={{ minHeight: '3rem' }}>
+              {repo.description || 'Aucune description disponible.'}
+            </p>
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                marginTop: '0.5rem',
+              }}
+            >
               <span
                 style={{
                   display: 'inline-block',
@@ -53,10 +63,12 @@ export default function GitHubProjects() {
                   height: 10,
                   borderRadius: '50%',
                   backgroundColor: color,
-                  marginRight: 6
+                  marginRight: 6,
                 }}
               />
-              <span style={{ fontSize: '0.9rem', color: '#666' }}>{language}</span>
+              <span style={{ fontSize: '0.9rem', color: '#666' }}>
+                {language}
+              </span>
             </div>
           </a>
         );
