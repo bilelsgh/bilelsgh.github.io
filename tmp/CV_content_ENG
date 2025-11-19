@@ -1,0 +1,80 @@
+M gabriel.fournier.10@gmail.com
+• gfournieriExec
+in Oxgabriel
+X @IvizzCut
+9 Lyon, France
+# French
+Education
+2019-2022
+INSA Lyon Engineer Degree:
+Telecommunications
+INSA Lyon
+2016-2019
+Preparatory Class for
+Scientific Grandes Écoles
+Blaise Pascal High School
+Interests
+• Web3, Blockchain, EVM, ZKP
+• Running, Trail
+• Mountain, Ski, Hiking
+• Indoor plants
+Skills
+• Adaptability
+• Problem solving
+• Webs
+EVM, Solidity, Vyper, Hardhat,
+Foundry, Geth.
+Sidechain, Layer2, ZKP.
+Sidechain Node managment
+• Backend
+NodeJS / Ts, Golang, Rust
+• Infra
+Github, CI/CD, Jenkins, github actions, Docker
+Hackathon
+• 2023 ETHGlobal Istanbul
+Prizes UNICEF Innovation
+4th Place Mina Protocol
+Language
+French - native
+English - fluent (C1)
+Spanish - fluent (C1)
+Gabriel Fournier
+Blockchain Engineer
+Telecommunications Engineer, INSA Lyon
+Experience
+2022-2025 (4 years, ongoing)
+iExec - Lyon
+Blockchain Engineer
+Contributed to the development, deployment, and continuous improvement of the iExec platform, focusing on both blockchain infrastructure and secure smart contract architecture.
+• Sidechain Infrastructure, Node, and DevOps Automation
+• Orchestrated end-to-end deployment and lifecycle management of POA/sidechain networks (Bellecour) using OpenEthereum, later migrating to Nethermind for long-term reliability as OpenEthereum was deprecated
+• Automated sidechain node management through Dockerization and Jenkins, enabling seamless network relaunch and streamlined infrastructure rollouts in collaboration with DevSecOps.
+• Led deployment and configuration of critical stack components including canonical bridges, Netstats, Blockscout, validator nodes, archive nodes, and bootnodes.
+• Smart Contract Engineering & Architecture (PoCo)
+• Engineered and maintained the iExec PoCo protocol's smart contracts.
+• Migrated proxy architecture from ERC-1538 to the more modular and scalable ERC-
+2535 Diamond Standard for extensibility and upgradeability.
+• Developed advanced Solidity modules: PoCo main contract, voucher systems, and LayerZero OFT interoperability.
+• Established a robust automated testing and deployment pipeline using Hardhat, Foundry, and GitHub Actions, integrating thorough unit/integration testing, code quality gates, and security Cl tools for continuous audit readiness.
+• Designed and maintained The Graph subgraphs and deployment workflows, integrating rich on-chain analytics with off-chain data processing.
+2021 - 4 months
+Coexya - Lyon
+R&D Intern Engineer - Mobile Application
+• Conducted a market research and a state-of-the-art review,
+• Proposed a wireframe,
+• Designed a mobile application in React Native, TypeScript.
+Side Projects
+Blockchain Automation & DeFi Bots (TS, Golang)
+Built multichain DeFi trading, token sniping, and portfolio automation bots in Go and TypeScript, featuring live transaction streaming, wallet activity tracking, and direct smart contract interaction for various strategies.
+Real-Time Web3 Monitoring & Scam Protection
+Designed backend tools for streaming on-chain alerts, automated swap execution, and scam detection across EVM networks, ensuring rapid response to market events.
+Web Scraping & API Automation
+Developed custom scrapers and automation bots in Node.js, Rust, and Go for data extraction, social media automation, and API integration, supporting real-time blockchain analytics and event monitoring.
+Courses
+Cyfrin Updraft
+Smart Contract Security
+Noir Programming
+Encode Bootcamp
+ZK Bootcamp
+RareCode
+Rust
