@@ -1,0 +1,87 @@
+
+divers bots 
+-> trading / sniping bot live on multichain all written in go 
+https://github.com/gabiwaxxxX/go-bot-cli
+This is a sophisticated DeFi trading bot CLI application that provides automated trading, token listing monitoring, and smart contract interaction capabilities across multiple blockchain networks. The bot specializes in token sniping, liquidity tracking, and automated trading strategies.
+    -> start to rewrite it in rust 
+-> Binance DCA bot : automate trades / withdraw and save the infos in mongo db / notion database 
+ETH DCA Bot 🤖⚡
+A sophisticated Ethereum Dollar-Cost Averaging (DCA) bot built in Rust that automatically purchases ETH on Binance using a scheduled strategy. The bot includes advanced features like automated withdrawals to cold storage, comprehensive tracking with MongoDB, and optional Notion integration for portfolio management.
+https://github.com/gfournieriExec/eth-dca-bot
+-> pandale sale - ape 
+https://github.com/gabiwaxxxX/panda-sale-ape => This project is a simple tool that allows you to interact directly with a pandasale presale.
+interaction with smart contract 
+-> web scrapper bot
+    - twitter automation post with image https://github.com/gabiwaxxxX/dailyX-js
+    -> remilia.com scrapping to interact => turned into an api automation call bot 
+    -> A Rust-based automation tool for the Remilia platform that automatically pokes users and sends friend requests based on activity feed interactions. https://github.com/gfournieriExec/remilia_selenium
+- https://github.com/gabiwaxxxX/Irboz-multi-tx
+Start wrtting of sandwich smart contract rewitten with assembly 
+https://github.com/gabiwaxxxX/subway/blob/master/src/Sandwich.sol
+
+node guardians quest => https://github.com/gabiwaxxxX/ng-questplay pas avancé mais pourrais etre un bon truc a approfondir
+
+start modding geth to run standalone eth node without sycing => https://github.com/gabiwaxxxX/geth-mod
+
+https://github.com/gabiwaxxxX/golang-random-EVM
+This Project is just some ideas that I am working on, experimentation, quick automation, etc. One day I will clean all this mess and make it a real project. But for now, it is just a bunch of scripts that I am using to learn and experiment. Related to ERC20 manipulation, buy / sell, watch dev wallet and more. EVM manipulation, call functions, bytecode manipulation, etc.
+
+-> A sophisticated Golang-based blockchain automation tool that replicates and broadcasts smart contract transactions across multiple wallets on EVM-compatible networks. This project demonstrates advanced blockchain development skills including transaction decoding, ABI manipulation, HD wallet management, and multi-chain support.
+
+-> https://github.com/gabiwaxxxX/ClaimAndSell
+ClaimAndSell
+Special bot for Tomb fork
+
+This bot allows to automate the claim and the sell in a Tomb fork
+TokenX-ETH-LP
+Deposit TokenX-ETH-LP Earn TokenXShare
+
+This automation allows to deposit a lp of type tokenX-ETH in the liquidity pool of a fork falls and claim every x time. The claim will give in reward a tokenXShare and then proceeds to sell the amount of tokenXShare against the ETH token
+
+Here the ETH coin represents the coint of the chain on which the fork Tomb is (FTM,AVAX...)
+
+https://github.com/gabiwaxxxX/LoopStreamAndSell
+LoopStreamAndSell
+This repo is a v1 made in December 2021
+
+There is a need to change the architecture of the code and how it works. Need to switch to TS and switch from ether.js library to web3.js
+
+
+Bot that allows to follow in real time the actions of an address: ours and to trigger a swap token event. Then there is determination of the dev wallet of the token thus bought and a stream of these actions. If the dev wallet performs a scam type action the bot will automatically sell the token we just swapped
+
+getWalletBalance.js Allows to find the total amount that an address has of token X
+
+ScrappingCreatorAddress.js Find the address that created the token X
+
+sellYourToken.js Takes the amount that the user has of token X and the router on which he bought the token X and sells the totality for the token Y that he had put before
+
+TriggerEventAdress.js Stream transactions made by an address A:
+Two cases of use:
+
+If A is the user: if A buys a token X on a router B (swap) it will automatically approve the expenditure of the token X on the router B.
+If A is the address which created the token X it will look at its transactions and check if it does not carry out scammy transactions (approve the LP on the router B (rugpull), sell the token X (soft rug))
+
+
+-> https://github.com/gfournieriExec/multisig-automate-proposer 
+Safe Multisig Integration for RLC Multichain Bridge
+A production-ready TypeScript application for integrating Safe multisig wallets with Foundry-based smart contract deployments and transaction execution. Now available as a GitHub Action!
+
+🏗️ Architecture Overview
+This project provides a comprehensive solution for:
+
+Safe Multisig Integration: Automated transaction proposal and execution through Safe multisig wallets
+Foundry Integration: Seamless integration with Foundry scripts and Anvil forking
+Transaction Management: Batch transaction processing with proper nonce management
+Production Monitoring: Comprehensive logging, error handling, and validation
+GitHub Actions: Reusable workflow for CI/CD automation
+
+https://github.com/gfournieriExec/test-diamond-proxy
+ERC-2535 Diamond Proxy Smart Contract
+This project implements a complete ERC-2535 Diamond proxy smart contract using Foundry. The Diamond standard allows for modular smart contracts where functionality can be added, replaced, or removed through facets.
+
+
+-https://github.com/gfournieriExec/hackaton-oda
+# ApeCoin Airdrop Tracker
+A Node.js application to track and monitor unclaimed ApeCoin airdrops for Bored Ape Yacht Club (BAYC), Mutant Ape Yacht Club (MAYC), and Bored Ape Kennel Club (BAKC) NFT collections.
+## Overview
+This project interacts with the Ethereum blockchain to identify NFTs from the Ape ecosystem that have not yet claimed their ApeCoin airdrop. It scans through the entire collection of NFTs and generates reports on unclaimed tokens, along with their current market value.
