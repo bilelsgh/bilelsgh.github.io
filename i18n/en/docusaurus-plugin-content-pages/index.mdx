@@ -3,7 +3,7 @@ title: 'Home'
 description: 'Introduction'
 ---
 
-import '../../../src/css/index.css';
+import RandomCards from '/static/components/RandomCards';
 
 <div
   style={{
@@ -60,14 +60,4 @@ import '../../../src/css/index.css';
 
 {/* Links */}
 
-<div style={{ display: 'flex', gap: '1rem' }}>
-  <a href="/articles" className="mycard">
-    <h3>📚 Articles</h3>
-    <p>Read my reflexions on AI and my research.</p>
-  </a>
-
-  <a href="/projets" className="mycard">
-    <h3>🔧 Projects</h3>
-    <p>Explore my contributions and projects</p>
-  </a>
-</div>
+<RandomCards />

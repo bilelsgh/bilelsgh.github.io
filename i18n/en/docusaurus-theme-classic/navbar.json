@@ -1,0 +1,26 @@
+{
+  "title": {
+    "message": "Gabriel F.",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "My Site Logo",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.Projets": {
+    "message": "Projects",
+    "description": "Navbar item with label Projets"
+  },
+  "item.label.CV": {
+    "message": "CV",
+    "description": "Navbar item with label CV"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub",
+    "description": "Navbar item with label GitHub"
+  },
+  "item.label.LinkedIn": {
+    "message": "LinkedIn",
+    "description": "Navbar item with label LinkedIn"
+  }
+}
