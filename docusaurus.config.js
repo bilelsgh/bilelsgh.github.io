@@ -6,11 +6,11 @@ const config = {
   tagline: 'Dinosaurs are cool',
   favicon: 'https://www.remilia.com/identity/pfp/veryinternetperson/2608',
 
-  url: 'https://gabiwaxxxX.github.io',
-  baseUrl: '/',
+  url: 'https://gabiwaxxxx.github.io',
+  baseUrl: '/gabiwaxx.github.io/',
   
   // GitHub pages deployment config.
-  organizationName: 'gabiwaxxxX',
+  organizationName: 'gabiwaxxxx',
   projectName: 'gabiwaxx.github.io',
   trailingSlash: false,
 
