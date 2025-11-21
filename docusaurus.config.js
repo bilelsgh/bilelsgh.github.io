@@ -6,17 +6,13 @@ const config = {
   tagline: 'Dinosaurs are cool',
   favicon: 'https://www.remilia.com/identity/pfp/veryinternetperson/2608',
 
-  url: 'https://gabiwaxxxX.github.io',
-  baseUrl: '/',
-  projectName: 'gabiwaxxxX.github.io',
-  organizationName: 'gabiwaxxxX',
-  deploymentBranch: 'main',
-  trailingSlash: false,
-
+  url: 'https://gabiwaxxxx.github.io',
+  baseUrl: '/gabiwaxx.github.io/',
+  
   // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'gabiwaxxxx',
+  projectName: 'gabiwaxx.github.io',
+  trailingSlash: false,
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
