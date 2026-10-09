@@ -5,17 +5,19 @@ description: 'articles'
 
 import '../../src/css/publications.css'
 
-export const Card = ({ title, image, description, cardClass, link }) => (
-  <a href={link} target="_blank" rel="noopener noreferrer" className={cardClass}>
-    <div className="card-image">
-      <img src={image} alt={title} width={300} height={180} />
-    </div>
-    <div className="card-content">
-      <h2>{title}</h2>
-      <p>{description}</p>
-    </div>
-  </a>
-)
+export const Card = ({ title, image, description, cardClass, link }) => {
+  return (
+    <a href={link} target="_blank" rel="noopener noreferrer" className={cardClass}>
+      <div className="card-image">
+        <img src={image} alt={title} width={300} height={180} />
+      </div>
+      <div className="card-content">
+        <h2>{title}</h2>
+        <p>{description}</p>
+      </div>
+    </a>
+  );
+};
 
 # Publications
 
@@ -43,5 +45,11 @@ Quelques articles scientifiques publiés (ou bientôt) au cours de ma thèse.
     cardClass="disabled-card"
     link=""
   />
-  
+  <Card
+    title="ACSAC 2026"
+    image="/img/acsac26.jpg"
+    description="TRACER: a Threat-aware Reinforcement-Learning Agent using Clustering Ensemble Rewards for Intrusion Detection"
+    cardClass="disabled-card"
+    link=""
+  />
 </div>
