@@ -1,54 +1,22 @@
 ---
 title: "Home"
-description: "Introduction"
+description: "Bilel Saghrouchni, CIFRE PhD candidate in Machine Learning: reinforcement learning and intrusion detection"
 ---
-import "../../../src/css/index.css"
 
-<div style={{
-  display: 'flex',
-  flexWrap: 'wrap',
-  alignItems: 'flex-start',
-  gap: '1rem',
-}}>
-  <div style={{
-    flex: '0 0 100px',
-    maxWidth: '150px',
-    minWidth: '80px',
-  }}>
-    <img
-      src="/img/pp.jpg"
-      style={{
-        width: '100%',
-        height: 'auto',
-        borderRadius: '50%',
-        objectFit: 'cover'
-      }}
-      alt="Profile"
-    />
-  </div>
-  <div style={{ flex: '1 1 300px' }}>
-    <h2>Welcome</h2>
-    <p>
-      I am <strong>Bilel Saghrouchni</strong>, a <strong>CIFRE PhD candidate in Machine Learning</strong> at SPIE ICS and INSA Lyon (CITI Lab). My research focuses on <strong>deep reinforcement learning and continual learning</strong> applied to <strong>intrusion detection</strong> in computer networks.
-    </p>
-    <p>
-      On this website, you can learn more about my background, explore my publications, and discover my personal projects. I also regularly share articles on my blog, where I discuss the progress of my PhD work as well as technical topics that I am passionate about.
-    </p>
-    <p>👉 <strong>Curious to know more or interested in collaborating? Feel free to get in touch!</strong></p>
-  </div>
-</div>
+import HomeHero from '@site/src/components/HomeHero'
+import HomeHighlights from '@site/src/components/HomeHighlights'
 
+<HomeHero
+  name="Bilel Saghrouchni"
+  role="CIFRE PhD candidate in Machine Learning · SPIE ICS & INSA Lyon (CITI Lab)"
+  photoAlt="Profile picture"
+  contactLabel="Get in touch"
+>
 
-{/* Links */}
+My research focuses on **deep reinforcement learning** and **continual learning** applied to **intrusion detection** in computer networks.
 
-<div style={{ display: 'flex', gap: '1rem' }}>
-  <a href="/articles" className="mycard">
-    <h3>📚 Articles</h3>
-    <p>Read my reflexions on AI and my research.</p>
-  </a>
+Curious to know more or interested in collaborating? Drop me a line!
 
-  <a href="/projets" className="mycard">
-    <h3>🔧 Projects</h3>
-    <p>Explore my contributions and projects</p>
-  </a>
-</div>
+</HomeHero>
+
+<HomeHighlights />

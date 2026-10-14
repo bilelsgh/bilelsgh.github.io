@@ -1,0 +1,35 @@
+// Publications, de la plus récente à la plus ancienne.
+// Sans `link`, la publication est affichée comme « à paraître ».
+// `page` pointe vers une page du site qui présente le papier.
+const publications = [
+  {
+    venue: 'ACSAC 2026',
+    image: '/img/acsac26.jpg',
+    title:
+      'TRACER: a Threat-aware Reinforcement-Learning Agent using Clustering Ensemble Rewards for Intrusion Detection',
+    page: '/tracer',
+  },
+  {
+    venue: 'KES 2026',
+    image: '/img/kes26.jpg',
+    title:
+      'Deep reinforcement learning for continuous intrusion detection using unsupervised fuzzy clustering-based rewards',
+    // Page /kes26 prête, à relier ici (page: '/kes26') une fois son contenu validé.
+  },
+  {
+    venue: 'KES 2025',
+    image: '/img/kes25.jpg',
+    title:
+      'Comprehensive Comparison of Streaming Clustering-Based IDS: Evaluation Across Clustering Families with a Novel Ensemble Classifier',
+    link: 'https://www.sciencedirect.com/science/article/pii/S187705092502928X',
+  },
+  {
+    venue: 'CSNet 2024',
+    image: '/img/paris_csnet.jpg',
+    title:
+      'Towards an Unsupervised Reward Function for a Deep Reinforcement Learning Based Intrusion Detection System',
+    link: 'https://ieeexplore.ieee.org/abstract/document/10851732',
+  },
+];
+
+export default publications;

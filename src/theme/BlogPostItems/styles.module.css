@@ -1,0 +1,140 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: inherit;
+  background: var(--site-card-background);
+  border: 1px solid var(--site-card-border);
+  border-radius: var(--site-radius);
+  box-shadow: var(--site-card-shadow);
+}
+
+.card:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Les visuels sont souvent des schémas à fond transparent : fond blanc dans les deux thèmes */
+.cover {
+  overflow: hidden;
+  background: #fff;
+  border-bottom: 1px solid var(--site-card-border);
+}
+
+.cover img {
+  display: block;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  transition: transform 0.4s;
+}
+
+.card:hover .cover img {
+  transform: scale(1.02);
+}
+
+.body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 1.25rem;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0;
+  margin: 0 0 0.75rem;
+  list-style: none;
+}
+
+.tags li {
+  padding: 0.1rem 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--site-tag-color);
+  background: var(--site-tag-background);
+  border-radius: var(--site-radius-sm);
+}
+
+.tags .featuredTag {
+  color: #fff;
+  background: var(--site-badge-background);
+}
+
+.title {
+  margin: 0 0 0.4rem;
+  font-size: 1.3rem;
+  line-height: 1.25;
+}
+
+.meta {
+  margin: 0 0 0.75rem;
+  font-size: 0.85rem;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.excerpt {
+  display: -webkit-box;
+  margin: 0 0 1rem;
+  overflow: hidden;
+  font-size: 0.95rem;
+  color: var(--ifm-color-emphasis-700);
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+}
+
+.more {
+  margin-top: auto;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+}
+
+/* Article le plus récent : pleine largeur, image à gauche sur grand écran */
+.featured {
+  grid-column: 1 / -1;
+}
+
+.featured .title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.featured .cover img {
+  height: 240px;
+}
+
+@media (min-width: 768px) {
+  .featured {
+    flex-direction: row;
+  }
+
+  .featured .cover {
+    flex: 0 0 45%;
+    border-right: 1px solid var(--site-card-border);
+    border-bottom: 0;
+  }
+
+  .featured .cover img {
+    height: 100%;
+    min-height: 280px;
+  }
+
+  .featured .body {
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  .featured .more {
+    margin-top: 0;
+  }
+}

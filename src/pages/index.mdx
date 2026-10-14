@@ -1,56 +1,23 @@
 ---
 title: "Accueil"
-description: "Présentation"
+description: "Bilel Saghrouchni, doctorant CIFRE en Machine Learning : apprentissage par renforcement et détection d'intrusion"
 ---
 
-import "/src/css/index.css"
-import RandomCards from '/static/components/RandomCards'
+import HomeHero from '@site/src/components/HomeHero'
+import HomeHighlights from '@site/src/components/HomeHighlights'
 
-{/* <!-- Présentation --> */}
+<HomeHero
+  name="Bilel Saghrouchni"
+  role="Doctorant CIFRE en Machine Learning · SPIE ICS & INSA Lyon (CITI Lab)"
+  photoAlt="Photo de profil"
+  contactLabel="Me contacter"
+>
 
-<div style={{
-  display: 'flex',
-  flexWrap: 'wrap',
-  alignItems: 'flex-start',
-  gap: '1rem',
-}}>
-  <div style={{
-    flex: '0 0 120px',
-    maxWidth: '200px',
-    minWidth: '100px',
-  }}>
-    <img
-      src="/img/pp.jpg"
-      style={{
-        width: '100%',
-        height: 'auto',
-        borderRadius: '50%',
-        objectFit: 'cover'
-      }}
-      alt="Photo de profil"
-    />
-  </div>
+Ingénieur IA diplômé de l'INSA Lyon, je suis actuellement en dernière année de doctorat CIFRE. 
+Mes travaux de recherche portent sur **l'apprentissage par renforcement profond** et **l'apprentissage continu** appliqués à **la détection d'intrusion** dans les réseaux informatiques.
 
-  <div style={{ flex: '1 1 300px' }}>
-    <h2>Bienvenue</h2>
-    <p>
-      Je suis <strong>Bilel Saghrouchni</strong>, doctorant CIFRE en <strong>Machine Learning</strong> chez SPIE ICS et à l'INSA Lyon (CITI Lab). Mes travaux de recherche portent sur <strong>l'apprentissage par renforcement profond</strong> et <strong>l'apprentissage continu</strong> appliqués à <strong>la détection d'intrusion</strong> dans les réseaux informatiques.
-    </p>
-    <p>
-      Sur ce site, vous pouvez découvrir mon parcours, consulter mes publications et explorer mes projets personnels. Je partage également régulièrement des articles sur mon blog, où je traite de l'avancement de ma thèse ainsi que de sujets techniques qui me passionnent.
-    </p>
-    <p>
-      👉 <strong>Curieux d'en savoir plus ou intéressé par une collaboration ? N’hésitez pas à me contacter !</strong>
-    </p>
-  </div>
-</div>
+Curieux d'en savoir plus ou intéressé par une collaboration ? Écrivez-moi !
 
-  
+</HomeHero>
 
-{/* Liens */}
-
-<RandomCards />
-
-
-
-{/* add stack technique */}
+<HomeHighlights />

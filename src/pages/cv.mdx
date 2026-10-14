@@ -1,146 +1,183 @@
 ---
 title: "CV"
-description: "cv"
+description: "CV de Bilel Saghrouchni, ingénieur IA appliquée et doctorant en Machine Learning"
 ---
 
-import TechStack from '/static/components/TechStack'
+import TechStack from '@site/static/components/TechStack'
+import {CvHeader, CvTimeline, CvEntry, CvGrid, CvCard, CvMoreLink} from '@site/src/components/Cv'
 
-<a
-  href="/files/CV_Bilel_SAGHROUCHNI_2026_fr.pdf"
-  target="_blank"
-  style={{
-    color: '#007BFF',
-    textDecoration: 'none',
-    fontStyle: 'italic',
-  }}
->
-  📄 Télécharger la version complète
-</a>
-
-# Bilel Saghrouchni
-
-📍 Lyon | [bilel.saghrouchni@gmail.com](mailto:bilel.saghrouchni@gmail.com) |
-[linkedin.com/in/bilel-saghrouchni](https://linkedin.com/in/bilel-saghrouchni) | [bilelsgh.github.io](https://bilelsgh.github.io) | _🇫🇷: Natif 🇬🇧: Fluent_
-
----
+<CvHeader
+  name="Bilel Saghrouchni"
+  role="Ingénieur IA Appliquée · Doctorant en Machine Learning"
+  location="Lyon"
+  languages="Français natif · Anglais courant"
+  downloadHref="/files/CV_Bilel_SAGHROUCHNI_2026_fr.pdf"
+  downloadLabel="Télécharger le CV complet"
+/>
 
 ## Profil
 
 Ingénieur IA Appliquée et Doctorant avec plus de 4 ans d'expérience à l'intersection de la recherche de pointe et du déploiement en entreprise. Spécialisé dans la conception de systèmes agentiques autonomes (Deep Reinforcement Learning, LLMs) et dans la traduction d'exigences métier complexes en solutions IA robustes et scalables.
 
-
----
-
-
 ## Expérience
 
-### Doctorant en Machine Learning / Ingénieur IA Appliquée — INSA Lyon / SPIE ICS
-🗓️ Nov 2023 – Aujourd'hui
+<CvTimeline>
+
+<CvEntry
+  title="Doctorant en Machine Learning / Ingénieur IA Appliquée"
+  org="INSA Lyon / SPIE ICS"
+  date="Nov 2023 – Aujourd'hui"
+  stack={['Python', 'PyTorch', 'TensorFlow', 'Gymnasium', 'Stable-Baselines3', 'MLflow', 'Docker', 'PostgreSQL']}
+>
 
 - **Déploiements IA en entreprise :** Collaboration directe avec des parties prenantes hospitalières pour déployer des systèmes de supervision autonomes, en traduisant des exigences cliniques complexes en artefacts techniques robustes.
 - **Conception d'agents autonomes :** Conception et développement d'agents RL (PPO, A2C, Double DQN) opérant dans des environnements entièrement non supervisés et semi-supervisés, avec des mécanismes de récompense inédits basés sur l'ensemble learning et des signaux de fuzzy-clustering.
 - **Pipelines ML de bout en bout :** Ingestion de données, extraction de caractéristiques, apprentissage de représentations (Autoencoders, Contrastive Learning) et évaluation — intégration de MLflow pour le suivi des expériences et la reproductibilité.
 - **Infrastructure de production :** Déploiement de services d'inférence haute disponibilité via des APIs REST dockerisées dans des environnements IT hospitaliers contraints.
-- **Recherche appliquée :** Continual learning, adaptation en ligne et optimisation dynamique de politiques ; 3 publications (KES 2025, CSNet 2024, KES 2026).
+- **Recherche appliquée :** Continual learning, adaptation en ligne et optimisation dynamique de politiques ; 4 publications (ACSAC 2026, KES 2026, KES 2025, CSNet 2024).
 - **Encadrement :** Supervision de stagiaires ingénieurs et conduite de revues de code.
 
-*Stack : Python, PyTorch, TensorFlow, Gymnasium, Stable-Baselines3, MLflow, Docker, PostgreSQL*
+</CvEntry>
 
----
-
-### Software Engineer — Devoteam
-🗓️ Juin 2022 – Septembre 2023 | Levallois-Perret, France
+<CvEntry
+  title="Software Engineer"
+  org="Devoteam"
+  date="Juin 2022 – Septembre 2023"
+  location="Levallois-Perret, France"
+  stack={['Python', 'TensorFlow', 'Flask', 'Rasa', 'VOSK']}
+>
 
 - **Conseil technique :** Rôle de consultant technique auprès de clients entreprise, identification des enjeux métier et livraison de solutions logicielles sur mesure sur la plateforme ServiceNow.
 - **IA Conversationnelle :** Développement et mise en production d'un assistant vocal pour techniciens de terrain, intégrant des pipelines NLP, la reconnaissance vocale et l'automatisation de tâches.
 - **Federated Learning :** Implémentation d'un système de federated learning préservant la confidentialité des données pour l'entraînement distribué de modèles dans des environnements clients contraints.
 
-*Stack : Python, TensorFlow, Flask, Rasa, VOSK*
+</CvEntry>
 
----
-
-### Software Engineer Full-Stack — ETIC (INSA Lyon)
-🗓️ Sept 2021 – Avril 2023 | Lyon, France
+<CvEntry
+  title="Software Engineer Full-Stack"
+  org="ETIC (INSA Lyon)"
+  date="Sept 2021 – Avril 2023"
+  location="Lyon, France"
+  stack={['Angular', 'Flask', 'PostgreSQL', 'AWS Beanstalk']}
+>
 
 - Conception et déploiement d'une application full-stack haute disponibilité pour une compagnie nationale de transport.
 - Développement de pipelines backend à haut débit et gestion de l'infrastructure cloud (AWS Elastic Beanstalk).
 
-*Stack : Angular, Flask, PostgreSQL, AWS Beanstalk*
+</CvEntry>
 
----
-
-### Data Scientist (Stagiaire) — Worldline
-🗓️ Avril – Août 2021 | Villeurbanne, France
+<CvEntry
+  title="Data Scientist (Stagiaire)"
+  org="Worldline"
+  date="Avril – Août 2021"
+  location="Villeurbanne, France"
+  stack={['Pandas', 'Scikit-learn', 'SQL']}
+>
 
 - Traitement de larges datasets financiers pour l'entraînement de modèles de détection de fraude.
 - Développement de pipelines de données et de tableaux de bord d'interprétabilité pour les parties prenantes métier.
 
-*Stack : Pandas, Scikit-learn, SQL*
+</CvEntry>
 
----
+</CvTimeline>
 
 ## Stack technique
-<TechStack />
 
----
+<TechStack />
 
 ## Diplômes et formations
 
-**INSA Lyon** — Diplôme d'Ingénieur, Informatique & Télécommunications | 2019 – 2022
+<CvTimeline>
+
+<CvEntry
+  title="Diplôme d'Ingénieur, Informatique & Télécommunications"
+  org="INSA Lyon"
+  date="2019 – 2022"
+>
+
 Top 5% de la promotion. Cours : Machine Learning, Deep Learning, Reinforcement Learning, Systèmes distribués.
 
-**National University of Singapore (NUS)** — Programme d'échange, School of Computing | 2022
+</CvEntry>
+
+<CvEntry
+  title="Programme d'échange, School of Computing"
+  org="National University of Singapore (NUS)"
+  date="2022"
+>
+
 Spécialisation : Sécurité informatique, Feature Engineering, Recherche d'information.
 
----
+</CvEntry>
 
-## Recherche et Publications
+</CvTimeline>
 
-- **Comprehensive Comparison of Streaming Clustering-Based IDS** — KES 2025
-  *Bilel Saghrouchni, Frédéric Le-Mouël, Bogdan Szanto* \[[DOI](https://doi.org/10.1016/j.procs.2025.09.255)]
-- **Towards An Unsupervised Reward Function For A Deep RL Based IDS** — CSNet 2024
-  *Bilel Saghrouchni, Frédéric Le-Mouël, Bogdan Szanto* \[[DOI](https://doi.org/10.1109/TASC.2023.3340648)]
-- **Deep Reinforcement Learning for Continuous Intrusion Detection Using Unsupervised Fuzzy Clustering-Based Rewards** — KES 2026
+## Recherche et Publications <CvMoreLink to="/publications" label="Voir +" /> {#recherche-et-publications}
+
+- **TRACER: a Threat-aware Reinforcement-Learning Agent using Clustering Ensemble Rewards for Intrusion Detection** — ACSAC 2026 *(à paraître)*<br />
   *Bilel Saghrouchni, Frédéric Le-Mouël, Bogdan Szanto*
-
----
+- **Deep Reinforcement Learning for Continuous Intrusion Detection Using Unsupervised Fuzzy Clustering-Based Rewards** — KES 2026<br />
+  *Bilel Saghrouchni, Frédéric Le-Mouël, Bogdan Szanto*
+- **Comprehensive Comparison of Streaming Clustering-Based IDS** — KES 2025<br />
+  *Bilel Saghrouchni, Frédéric Le-Mouël, Bogdan Szanto* \[[DOI](https://doi.org/10.1016/j.procs.2025.09.255)]
+- **Towards An Unsupervised Reward Function For A Deep RL Based IDS** — CSNet 2024<br />
+  *Bilel Saghrouchni, Frédéric Le-Mouël, Bogdan Szanto* \[[DOI](https://doi.org/10.1109/TASC.2023.3340648)]
 
 ## Projets IA & LLM
 
-**ask_zotero — RAG sur bibliothèque académique**
-Système RAG prêt pour la production pour interroger et synthétiser de la littérature scientifique. Embeddings vectoriels, pipelines de récupération LLM, prompt engineering avancé. *(LangChain, Streamlit)*
+<CvGrid>
 
-**ExplainMe — Générateur de contenu LLM**
+<CvCard title="ask_zotero — RAG sur bibliothèque académique" tags={['LangChain', 'Streamlit']}>
+
+Système RAG prêt pour la production pour interroger et synthétiser de la littérature scientifique. Embeddings vectoriels, pipelines de récupération LLM, prompt engineering avancé.
+
+</CvCard>
+
+<CvCard title="ExplainMe — Générateur de contenu LLM">
+
 Outil LLM automatisé pour la génération d'explications et de résumés. Chaînage de workflows agentiques et évaluation de la fiabilité des sorties.
 
-**Data Explorer — Outil ML Interactif**
+</CvCard>
+
+<CvCard title="Data Explorer — Outil ML Interactif">
+
 Interface interactive d'exploration et de prétraitement de datasets pour ingénieurs ML.
 
----
+</CvCard>
+
+</CvGrid>
 
 ## Compétences
 
-**IA & Machine Learning**
-Deep Learning, Reinforcement Learning (PPO, A2C, DQN), Apprentissage de représentations, Systèmes agentiques, Continual Learning, Online Learning
+<CvGrid>
 
-**LLM & IA Générative**
-RAG, Prompt Engineering, Applications LLM, Orchestration d'agents — Intérêt actif pour : SFT, RLHF, PEFT, Génération de données synthétiques
+<CvCard
+  title="IA & Machine Learning"
+  tags={['Deep Learning', 'Reinforcement Learning (PPO, A2C, DQN)', 'Apprentissage de représentations', 'Systèmes agentiques', 'Continual Learning', 'Online Learning']}
+/>
 
-**Ingénierie & Déploiement**
-Python (expert), PyTorch, TensorFlow, Scikit-learn, Docker, REST APIs, MLflow, PostgreSQL, AWS
+<CvCard
+  title="LLM & IA Générative"
+  tags={['RAG', 'Prompt Engineering', 'Applications LLM', "Orchestration d'agents"]}
+>
 
-**Langues**
-Français (natif) — Anglais (courant)
+Intérêt actif pour : SFT, RLHF, PEFT, Génération de données synthétiques
 
----
+</CvCard>
+
+<CvCard
+  title="Ingénierie & Déploiement"
+  tags={['Python (expert)', 'PyTorch', 'TensorFlow', 'Scikit-learn', 'Docker', 'REST APIs', 'MLflow', 'PostgreSQL', 'AWS']}
+/>
+
+<CvCard title="Langues" tags={['Français (natif)', 'Anglais (courant)']} />
+
+</CvGrid>
 
 ## Récompenses
 
-- 🥇 **1ʳᵉ place** (nationale) — Devoteam Devogame (IA & Innovation, 2021)
-- 🏅 **3ᵉ place** — Hackathome by Accenture (optimisation combinatoire, 2022)
-- 🏅 **3ᵉ place** — Safran Black Out Challenge
-
----
+- **1ʳᵉ place** (nationale) — Devoteam Devogame (IA & Innovation, 2021)
+- **3ᵉ place** — Hackathome by Accenture (optimisation combinatoire, 2022)
+- **3ᵉ place** — Safran Black Out Challenge
 
 ## Intérêts
 
@@ -150,4 +187,4 @@ Français (natif) — Anglais (courant)
 
 ---
 
-_Dernière mise à jour: Juillet 2026_
+_Dernière mise à jour : Juillet 2026_

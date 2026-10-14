@@ -1,0 +1,228 @@
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.75rem;
+  margin-bottom: 2.5rem;
+  background: var(--site-card-background);
+  border: 1px solid var(--site-card-border);
+  border-left: 4px solid var(--ifm-color-primary);
+  border-radius: var(--site-radius);
+  box-shadow: var(--site-card-shadow);
+}
+
+.name {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  line-height: 1.1;
+}
+
+.role {
+  margin: 0.4rem 0 0.9rem;
+  font-family: var(--ifm-heading-font-family);
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 1.25rem;
+  padding: 0;
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--ifm-color-emphasis-700);
+  list-style: none;
+}
+
+/* Frise verticale des expériences et formations, remplie au défilement */
+.timeline {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-left: 0.4rem;
+  border-left: 2px solid var(--site-card-border);
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -2px;
+  width: 2px;
+  height: calc(var(--cv-progress, 0) * 100%);
+  background: var(--ifm-color-primary);
+}
+
+.entry {
+  position: relative;
+  padding-bottom: 1.75rem;
+}
+
+.entry:last-child {
+  padding-bottom: 0.5rem;
+}
+
+/* Point de la frise : creux, puis rempli avec une onde quand l'entrée apparaît */
+.entry::before {
+  content: '';
+  position: absolute;
+  top: 0.45rem;
+  left: calc(-1.5rem - 7px);
+  width: 12px;
+  height: 12px;
+  background: var(--ifm-background-color);
+  border: 2px solid var(--ifm-color-primary);
+  border-radius: 50%;
+  transition: background-color 0.4s 0.2s, transform 0.2s;
+}
+
+.entryVisible::before {
+  background: var(--ifm-color-primary);
+}
+
+.entry:hover::before {
+  transform: scale(1.35);
+}
+
+.entry h3 {
+  transition: color 0.2s;
+}
+
+.entry:hover h3 {
+  color: var(--ifm-color-primary);
+}
+
+.entry .tags li {
+  opacity: 0;
+}
+
+.entryVisible .tags li {
+  opacity: 1;
+  transition: opacity 0.6s calc(0.3s + var(--tag-index) * 40ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .entry .tags li {
+    opacity: 1;
+    transition: none;
+  }
+}
+
+.entryHead {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.entryHead h3 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.date {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+  white-space: nowrap;
+}
+
+.org {
+  margin: 0.15rem 0 0.75rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.entry li,
+.entry > p:not(.org) {
+  font-size: 0.95rem;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0;
+  margin: 0.75rem 0 0;
+  list-style: none;
+}
+
+.tags li {
+  padding: 0.15rem 0.65rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--site-tag-color);
+  background: var(--site-tag-background);
+  border-radius: var(--site-radius-sm);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.grid > :nth-child(2) {
+  transition-delay: 0.08s;
+}
+
+.grid > :nth-child(3) {
+  transition-delay: 0.16s;
+}
+
+.grid > :nth-child(4) {
+  transition-delay: 0.24s;
+}
+
+.card {
+  height: 100%;
+  padding: 1.25rem;
+  background: var(--site-card-background);
+  border: 1px solid var(--site-card-border);
+  border-radius: var(--site-radius);
+  box-shadow: var(--site-card-shadow);
+}
+
+.card h3 {
+  margin: 0 0 0.6rem;
+  font-size: 1.1rem;
+}
+
+.card p,
+.card li {
+  font-size: 0.92rem;
+  color: var(--ifm-color-emphasis-800);
+}
+
+.card > :last-child {
+  margin-bottom: 0;
+}
+
+.card ul:not(.tags) {
+  padding-left: 1.1rem;
+}
+
+.moreLink {
+  display: inline-block;
+  margin-left: 0.75rem;
+  padding: 0.15rem 0.7rem;
+  font-family: var(--ifm-font-family-base);
+  font-size: 0.8rem;
+  font-weight: 600;
+  vertical-align: middle;
+  color: var(--ifm-color-primary);
+  border: 1px solid var(--ifm-color-primary);
+  border-radius: 999px;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.moreLink:hover {
+  color: #fff;
+  text-decoration: none;
+  background: var(--ifm-color-primary);
+}

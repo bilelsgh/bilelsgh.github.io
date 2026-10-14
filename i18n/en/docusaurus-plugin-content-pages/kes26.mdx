@@ -1,0 +1,172 @@
+---
+unlisted: true
+title: "Detection without labels"
+description: "The KES 2026 paper explained simply: a reinforcement-learning agent that detects intrusions without any labelled data."
+---
+
+import {PaperHero, StatRow, Stat, LearningLoop, NormalitySimulator, BarChart, ResultsExplorer, PaperFigure, Takeaways} from '@site/src/components/tracer'
+import kes26Results from '@site/src/data/kes26Results'
+
+<PaperHero
+  title="Detection without labels"
+  tagline="Can an agent learn to spot intrusions without ever being given the right answer?"
+  venue="KES 2026"
+  status="Forthcoming"
+  authors="Bilel Saghrouchni, Frédéric Le Mouël, Bogdan Szanto — INSA Lyon (INRIA, CITI) · SPIE ICS"
+/>
+
+<StatRow>
+  <Stat value={0} label="labels used to reward the agent" />
+  <Stat value={95} suffix=" %" label="detection on some attacks, at best" />
+  <Stat value={3} label="reinforcement learning algorithms compared" />
+  <Stat value={4} label="network traffic datasets" />
+</StatRow>
+
+## The problem
+
+A computer network never stands still: new applications arrive, habits change, and attackers invent new methods. An intrusion detection system trained once and for all quickly becomes obsolete and must be retrained regularly — a manual, slow and costly job.
+
+Reinforcement learning is an appealing answer: an agent classifies each network flow, receives a reward or a penalty, and keeps improving. But in almost all existing work, that reward is computed from the right answer, the label. In real conditions, nobody provides labels live, and certainly not for an unknown attack.
+
+The paper's question: **can a useful reward be built without any label?**
+
+## The idea: let the data group itself
+
+Instead of asking for the right answer, we look at the shape of the data. Network flows are split into **two groups** by a clustering algorithm, then we work out which of the two looks most like normal traffic. The agent's reward follows from that.
+
+<LearningLoop
+  steps={[
+    {title: "Window of flows", text: "A batch of 1,000 network flows is taken."},
+    {title: "Simplification", text: "Flows are summarised in a few dimensions."},
+    {title: "Two groups", text: "Fuzzy C-Means splits the flows into two groups."},
+    {title: "Normality score", text: "The largest and densest group is deemed normal."},
+    {title: "Reward", text: "The agent is rewarded if it agrees with that verdict."},
+  ]}
+  feedback="The agent adjusts its strategy, then the next window comes in"
+/>
+
+Two ingredients make this reward finer than a plain yes / no:
+
+- **A normality score.** The usual assumption is that the smallest group holds the anomalies. It is often wrong. The paper therefore combines two criteria, the group's **size** and its **density** (how tightly packed its flows are), which gives better or equivalent results on every dataset tested.
+- **A membership degree.** The algorithm used is *fuzzy*: it says how strongly a flow belongs to its group, from 0 to 1. The reward is proportional to that degree. A flow on the border between the two groups is worth only a small reward or penalty; a flow clearly inside a group is worth a large one. The agent is thus never heavily punished on an ambiguous case.
+
+### Try it yourself
+
+Change the size and density of the two groups, put the flow in one of them, and watch the reward the agent receives.
+
+<NormalitySimulator
+  labels={{
+    clusters: ["Group A", "Group B"],
+    size: "Share of flows",
+    density: "Density",
+    score: "Normality score",
+    benign: "normal",
+    suspect: "suspicious",
+    alert: "alert",
+    flow: "The flow to judge",
+    membership: "Membership degree",
+    agentAction: "Agent's decision",
+    normalCluster: "Group deemed normal",
+    reward: "Reward",
+    note: "A group's normality score is half its relative size plus half its relative density. The agent gains the flow's membership degree if it says “normal” for a flow in the normal group or “alert” for a flow in the other group; otherwise it loses it.",
+  }}
+/>
+
+<PaperFigure
+  src="/img/kes26/architecture.png"
+  alt="Architecture diagram: label-based reward on the left, fuzzy-clustering-based reward on the right"
+  caption="Figure from the paper — left (green): the classic label-based reward; right (blue): the proposed reward, based on fuzzy clustering."
+/>
+
+## How it was tested
+
+The reward is evaluated on four reference datasets (NSL-KDD, CICIDS17, UNSW-NB15 and ToN-IoT), with three reinforcement learning algorithms (DDQN, A2C and PPO) and two ways of simplifying the data before clustering (PCA and autoencoder). Each experiment is repeated ten times; results vary very little from one run to the next.
+
+Rather than a global mark, which can hide an agent that always answers “normal”, the paper looks at a *detection score* attack by attack: it is high only if the agent recognises both that attack and normal traffic. Each score is compared with that of an agent rewarded with the true labels.
+
+## Results: selective detection
+
+Without any label, the agent detects some attack families very well, sometimes as well as a supervised agent, and almost completely misses others. The paper calls this *selective sensitivity*.
+
+<BarChart
+  title="Detection score on a selection of attacks (DQN agent)"
+  max={100}
+  unit=" %"
+  decimals={1}
+  data={[
+    {label: 'Infiltration — CICIDS17', value: 95.9},
+    {label: 'Heartbleed — CICIDS17', value: 95.9},
+    {label: 'Probing — NSL-KDD', value: 86.5},
+    {label: 'Generic — UNSW-NB15', value: 83.0},
+    {label: 'DoS — NSL-KDD', value: 82.8},
+    {label: 'Web attack — CICIDS17', value: 82.5},
+    {label: 'Backdoor — UNSW-NB15', value: 80.4},
+    {label: 'U2R — NSL-KDD', value: 56.9, muted: true},
+    {label: 'MITM — ToN-IoT', value: 48.4, muted: true},
+    {label: 'Worms — UNSW-NB15', value: 39.5, muted: true},
+    {label: 'R2L — NSL-KDD', value: 17.1, muted: true},
+  ]}
+  note="Darker bars: well-detected attacks; lighter bars: those that resist. Each value is given with the representation quoted in the paper (PCA or autoencoder)."
+/>
+
+Three lessons:
+
+- **It sees attacks the supervised approach misses.** *Infiltration*, *Heartbleed* and *Web attack* in CICIDS17, or *R2L* in NSL-KDD with the autoencoder, are better detected than with a label-based reward.
+- **Stealthy attacks slip through.** When an attack mimics legitimate traffic (*Worms*, *MITM*), or forms a dense, well-organised block (*Brute Force*, *PortScan* and *Bot* in CICIDS17), it is absorbed by the “normal” group and the agent learns to let it through.
+- **Context matters.** On ToN-IoT, where connected-device traffic is repetitive and not very varied, scores are close to 80% on most attacks. On CICIDS17, a highly diverse enterprise network, results are far more contrasted.
+
+<PaperFigure
+  src="/img/kes26/detection-per-attack.png"
+  alt="Detection score per attack across the four datasets, with PCA and autoencoder"
+  caption="Figure from the paper — detection score (δ) for each attack. Blue bars: PCA; orange bars: autoencoder; dots: agent rewarded with the true labels."
+/>
+
+## What really matters
+
+The three reinforcement learning algorithms reach very similar results, with a slight edge for DQN. On the other hand, the way the data is simplified clearly changes what the agent manages to see: PCA discards subtle details that give away some rare attacks, which the autoencoder preserves better — and the reverse on other attacks. The two are complementary.
+
+In other words: **what makes the difference is how the data is represented and grouped, far more than the choice of learning algorithm.**
+
+### Compare the algorithms
+
+<ResultsExplorer
+  results={kes26Results}
+  series={['PCA', 'AE']}
+  metricOrder={[0, 1, 2, 3]}
+  labels={{
+    dataset: "Dataset",
+    technique: "Representation",
+    metric: "Metric",
+    metrics: ["Accuracy", "F1", "Precision", "Recall"],
+    metricHelp: [
+      "Accuracy: share of correct decisions, attacks and normal traffic combined.",
+      "F1: balance between precision and recall.",
+      "Precision: when the agent raises an alert, how often is it really an attack?",
+      "Recall: what share of attacks does the agent catch?",
+    ],
+  }}
+/>
+
+These global scores are lower than those of supervised approaches: that is expected for an agent that has never seen a single label, and it is precisely why the paper looks at results attack by attack.
+
+## Limits and next steps
+
+This reward captures a genuine anomaly signal, but it is sensitive to the geometry of the data: it spots large or clearly separate attacks well, less so those that blend into normal traffic. The clustering algorithm used, Fuzzy C-Means, also assumes roughly round-shaped groups.
+
+Announced directions:
+
+- try other clustering algorithms, notably density-based ones;
+- use more advanced representations, such as contrastive learning;
+- deploy the agent not on its own, but as a specialised engine within a multi-tier security architecture, alongside supervised approaches.
+
+Several of these directions are explored in [TRACER](/tracer), which combines three clustering algorithms and labels when they exist.
+
+<Takeaways>
+
+**Key takeaways**
+
+- An agent can learn to detect intrusions without any label, by being rewarded according to how flows group together.
+- It detects some attacks very well, including some the supervised approach misses, but stays blind to those that mimic normal traffic: it is a complement, not a replacement.
+- Data representation and clustering matter more than the reinforcement learning algorithm chosen.
+
+</Takeaways>

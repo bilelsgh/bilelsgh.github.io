@@ -1,0 +1,172 @@
+---
+unlisted: true
+title: "Détecter sans étiquettes"
+description: "Le papier KES 2026 expliqué simplement : un agent d'apprentissage par renforcement qui détecte des intrusions sans aucune donnée étiquetée."
+---
+
+import {PaperHero, StatRow, Stat, LearningLoop, NormalitySimulator, BarChart, ResultsExplorer, PaperFigure, Takeaways} from '@site/src/components/tracer'
+import kes26Results from '@site/src/data/kes26Results'
+
+<PaperHero
+  title="Détecter sans étiquettes"
+  tagline="Peut-on apprendre à un agent à repérer des intrusions sans jamais lui donner la bonne réponse ?"
+  venue="KES 2026"
+  status="À paraître"
+  authors="Bilel Saghrouchni, Frédéric Le Mouël, Bogdan Szanto — INSA Lyon (INRIA, CITI) · SPIE ICS"
+/>
+
+<StatRow>
+  <Stat value={0} label="étiquette utilisée pour récompenser l'agent" />
+  <Stat value={95} suffix=" %" label="de détection sur certaines attaques, dans le meilleur des cas" />
+  <Stat value={3} label="algorithmes d'apprentissage par renforcement comparés" />
+  <Stat value={4} label="jeux de données de trafic réseau" />
+</StatRow>
+
+## Le problème
+
+Un réseau informatique ne tient jamais en place : de nouvelles applications arrivent, les usages changent, et les attaquants inventent de nouvelles méthodes. Un système de détection d'intrusion entraîné une fois pour toutes devient vite obsolète, et il faut le réentraîner régulièrement — un travail manuel, long et coûteux.
+
+L'apprentissage par renforcement est une réponse séduisante : un agent classe chaque flux réseau, reçoit une récompense ou une pénalité, et s'améliore en continu. Mais dans presque tous les travaux existants, cette récompense est calculée à partir de la bonne réponse, l'étiquette. Or, en conditions réelles, personne ne fournit d'étiquettes en direct, et surtout pas pour une attaque inconnue.
+
+La question du papier : **peut-on fabriquer une récompense utile sans aucune étiquette ?**
+
+## L'idée : laisser les données se regrouper
+
+Plutôt que de demander la bonne réponse, on observe la forme des données. Les flux réseau sont répartis en **deux groupes** par un algorithme de regroupement, puis on détermine lequel des deux ressemble le plus à du trafic normal. La récompense de l'agent en découle.
+
+<LearningLoop
+  steps={[
+    {title: "Fenêtre de flux", text: "On prend un paquet de 1 000 flux réseau."},
+    {title: "Simplification", text: "Les flux sont résumés en quelques dimensions."},
+    {title: "Deux groupes", text: "Fuzzy C-Means sépare les flux en deux groupes."},
+    {title: "Score de normalité", text: "Le groupe le plus gros et le plus dense est jugé normal."},
+    {title: "Récompense", text: "L'agent est récompensé s'il est d'accord avec ce verdict."},
+  ]}
+  feedback="L'agent ajuste sa stratégie, puis on passe à la fenêtre suivante"
+/>
+
+Deux ingrédients rendent cette récompense plus fine qu'un simple « oui / non » :
+
+- **Un score de normalité.** L'hypothèse habituelle est que le plus petit groupe contient les anomalies. Elle est souvent fausse. Le papier combine donc deux critères, la **taille** du groupe et sa **densité** (à quel point ses flux sont serrés les uns contre les autres), ce qui donne de meilleurs résultats, ou des résultats équivalents, sur tous les jeux de données testés.
+- **Un degré d'appartenance.** L'algorithme utilisé est *flou* : il dit à quel point un flux appartient à son groupe, de 0 à 1. La récompense est proportionnelle à ce degré. Un flux à la frontière entre les deux groupes ne vaut qu'une petite récompense ou une petite pénalité ; un flux franchement dans un groupe en vaut une grande. L'agent n'est ainsi jamais lourdement sanctionné sur un cas ambigu.
+
+### Essayez vous-même
+
+Faites varier la taille et la densité des deux groupes, placez le flux dans l'un d'eux, et regardez la récompense que reçoit l'agent.
+
+<NormalitySimulator
+  labels={{
+    clusters: ["Groupe A", "Groupe B"],
+    size: "Part des flux",
+    density: "Densité",
+    score: "Score de normalité",
+    benign: "normal",
+    suspect: "suspect",
+    alert: "alerte",
+    flow: "Le flux à juger",
+    membership: "Degré d'appartenance",
+    agentAction: "Décision de l'agent",
+    normalCluster: "Groupe jugé normal",
+    reward: "Récompense",
+    note: "Le score de normalité d'un groupe vaut la moitié de sa taille relative plus la moitié de sa densité relative. L'agent gagne le degré d'appartenance du flux s'il dit « normal » pour un flux du groupe normal ou « alerte » pour un flux de l'autre groupe ; sinon il le perd.",
+  }}
+/>
+
+<PaperFigure
+  src="/img/kes26/architecture.png"
+  alt="Schéma de l'architecture : récompense par étiquettes à gauche, récompense par regroupement flou à droite"
+  caption="Figure du papier — à gauche (vert), la récompense classique fondée sur les étiquettes ; à droite (bleu), la récompense proposée, fondée sur le regroupement flou."
+/>
+
+## Comment on l'a testé
+
+La récompense est évaluée sur quatre jeux de données de référence (NSL-KDD, CICIDS17, UNSW-NB15 et ToN-IoT), avec trois algorithmes d'apprentissage par renforcement (DDQN, A2C et PPO) et deux manières de simplifier les données avant le regroupement (PCA et autoencodeur). Chaque expérience est répétée dix fois ; les résultats varient très peu d'une exécution à l'autre.
+
+Plutôt qu'une note globale, qui peut masquer un agent répondant toujours « normal », le papier regarde un *score de détection* attaque par attaque : il n'est élevé que si l'agent reconnaît à la fois cette attaque et le trafic normal. Chaque score est comparé à celui d'un agent récompensé avec les vraies étiquettes.
+
+## Résultats : une détection sélective
+
+Sans aucune étiquette, l'agent détecte très bien certaines familles d'attaques, parfois aussi bien qu'un agent supervisé, et en manque presque complètement d'autres. Le papier parle de *sensibilité sélective*.
+
+<BarChart
+  title="Score de détection sur une sélection d'attaques (agent DQN)"
+  max={100}
+  unit=" %"
+  decimals={1}
+  data={[
+    {label: 'Infiltration — CICIDS17', value: 95.9},
+    {label: 'Heartbleed — CICIDS17', value: 95.9},
+    {label: 'Probing — NSL-KDD', value: 86.5},
+    {label: 'Generic — UNSW-NB15', value: 83.0},
+    {label: 'DoS — NSL-KDD', value: 82.8},
+    {label: 'Web attack — CICIDS17', value: 82.5},
+    {label: 'Backdoor — UNSW-NB15', value: 80.4},
+    {label: 'U2R — NSL-KDD', value: 56.9, muted: true},
+    {label: 'MITM — ToN-IoT', value: 48.4, muted: true},
+    {label: 'Worms — UNSW-NB15', value: 39.5, muted: true},
+    {label: 'R2L — NSL-KDD', value: 17.1, muted: true},
+  ]}
+  note="En foncé, des attaques bien détectées ; en clair, celles qui résistent. Chaque valeur est donnée avec la représentation citée dans le papier (PCA ou autoencodeur)."
+/>
+
+Trois enseignements :
+
+- **Il voit des attaques que l'approche supervisée manque.** *Infiltration*, *Heartbleed* et *Web attack* dans CICIDS17, ou *R2L* dans NSL-KDD avec l'autoencodeur, sont mieux détectées qu'avec une récompense fondée sur les étiquettes.
+- **Les attaques discrètes lui échappent.** Quand une attaque imite le trafic légitime (*Worms*, *MITM*), ou qu'elle forme un bloc dense et bien organisé (*Brute Force*, *PortScan* et *Bot* dans CICIDS17), elle est absorbée par le groupe « normal » et l'agent apprend à la laisser passer.
+- **Le contexte compte.** Sur ToN-IoT, où le trafic des objets connectés est répétitif et peu varié, les scores sont proches de 80 % sur la plupart des attaques. Sur CICIDS17, un réseau d'entreprise très diversifié, les résultats sont beaucoup plus contrastés.
+
+<PaperFigure
+  src="/img/kes26/detection-per-attack.png"
+  alt="Score de détection par attaque sur les quatre jeux de données, avec PCA et autoencodeur"
+  caption="Figure du papier — score de détection (δ) pour chaque attaque. Barres bleues : PCA ; barres orange : autoencodeur ; points : agent récompensé avec les vraies étiquettes."
+/>
+
+## Ce qui compte vraiment
+
+Les trois algorithmes d'apprentissage par renforcement obtiennent des résultats très proches, avec un léger avantage pour DQN. En revanche, la manière de simplifier les données change nettement ce que l'agent parvient à voir : la PCA écarte des détails discrets qui trahissent certaines attaques rares, que l'autoencodeur conserve mieux — et inversement sur d'autres attaques. Les deux sont complémentaires.
+
+Autrement dit : **ce qui fait la différence, c'est la façon de représenter et de regrouper les données, bien plus que le choix de l'algorithme d'apprentissage.**
+
+### Comparez les algorithmes
+
+<ResultsExplorer
+  results={kes26Results}
+  series={['PCA', 'AE']}
+  metricOrder={[0, 1, 2, 3]}
+  labels={{
+    dataset: "Jeu de données",
+    technique: "Représentation",
+    metric: "Mesure",
+    metrics: ["Exactitude", "F1", "Précision", "Rappel"],
+    metricHelp: [
+      "Exactitude : part des décisions correctes, attaques et trafic normal confondus.",
+      "F1 : équilibre entre précision et rappel.",
+      "Précision : quand l'agent lève une alerte, à quelle fréquence est-ce vraiment une attaque ?",
+      "Rappel : quelle part des attaques l'agent repère-t-il ?",
+    ],
+  }}
+/>
+
+Ces scores globaux sont plus bas que ceux d'approches supervisées : c'est attendu pour un agent qui n'a jamais vu une seule étiquette, et c'est précisément pourquoi le papier regarde les résultats attaque par attaque.
+
+## Limites et suite
+
+Cette récompense capte un vrai signal d'anomalie, mais elle est sensible à la géométrie des données : elle repère bien les attaques volumineuses ou nettement à part, moins celles qui se fondent dans le trafic normal. L'algorithme de regroupement utilisé, Fuzzy C-Means, suppose en outre des groupes de forme arrondie.
+
+Les pistes annoncées :
+
+- essayer d'autres algorithmes de regroupement, notamment fondés sur la densité ;
+- utiliser des représentations plus avancées, comme l'apprentissage contrastif ;
+- déployer l'agent non pas seul, mais comme un moteur spécialisé au sein d'une architecture de sécurité à plusieurs niveaux, en complément d'approches supervisées.
+
+Plusieurs de ces pistes sont explorées dans [TRACER](/tracer), qui combine trois algorithmes de regroupement et les étiquettes quand elles existent.
+
+<Takeaways>
+
+**À retenir**
+
+- Un agent peut apprendre à détecter des intrusions sans aucune étiquette, en étant récompensé d'après la manière dont les flux se regroupent.
+- Il détecte très bien certaines attaques, y compris certaines que l'approche supervisée manque, mais reste aveugle à celles qui imitent le trafic normal : c'est un complément, pas un remplaçant.
+- La représentation des données et le regroupement comptent davantage que l'algorithme d'apprentissage par renforcement choisi.
+
+</Takeaways>

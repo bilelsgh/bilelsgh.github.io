@@ -1,0 +1,26 @@
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding-top: 1rem;
+  margin-top: auto;
+}
+
+.action {
+  display: inline-flex;
+  gap: 0.4rem;
+  align-items: center;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+  border: 1px solid var(--ifm-color-primary);
+  border-radius: 999px;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.action:hover {
+  color: #fff;
+  text-decoration: none;
+  background: var(--ifm-color-primary);
+}
