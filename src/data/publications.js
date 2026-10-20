@@ -33,3 +33,25 @@ const publications = [
 ];
 
 export default publications;
+
+// Workshops et tutoriels : présentations sans article, affichées plus discrètement.
+export const talks = [
+  {
+    kind: 'Workshop',
+    venue: 'LASER 2026',
+    title: 'From Benchmark to Deployment: How Should We Evaluate Learning-Based IDS?',
+    details: {
+      fr: 'Co-localisé avec ACSAC 2026 · Los Angeles · 8 décembre 2026',
+      en: 'Co-located with ACSAC 2026 · Los Angeles · December 8, 2026',
+    },
+  },
+  {
+    kind: 'Tutorial',
+    venue: 'CCNC 2027',
+    title: 'Leveraging Graph Neural Networks for Root Cause Analysis in Complex Computer Networks',
+    details: {
+      fr: 'Tutoriel d’une demi-journée · avec A. Nageotte, K. Murphy, H. Suzanne',
+      en: 'Half-day tutorial · with A. Nageotte, K. Murphy, H. Suzanne',
+    },
+  },
+];

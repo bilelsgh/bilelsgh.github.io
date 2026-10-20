@@ -57,7 +57,7 @@
 }
 
 
-.content h2 {
+.content h3 {
   margin: 0 0 0.5rem;
   font-size: 1.2rem;
 }
@@ -66,4 +66,47 @@
   margin: 0;
   font-size: 0.95rem;
   color: var(--ifm-color-emphasis-700);
+}
+
+.talks {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.talk {
+  padding: 0.75rem 1rem;
+  border-left: 2px solid var(--site-card-border);
+}
+
+.talk p {
+  margin: 0;
+}
+
+.talkMeta {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.talkKind {
+  margin-right: 0.35rem;
+  padding: 0.05rem 0.45rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--site-tag-color);
+  background: var(--site-tag-background);
+  border-radius: var(--site-radius-sm);
+}
+
+.talkTitle {
+  margin: 0.35rem 0 0.25rem !important;
+  font-size: 0.95rem;
+}
+
+.talkDetails {
+  font-size: 0.8rem;
+  color: var(--ifm-color-emphasis-600);
 }
